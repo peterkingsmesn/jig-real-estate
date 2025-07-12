@@ -76,6 +76,7 @@ export interface PropertyTranslations {
 }
 
 export interface PropertyFilters {
+  search?: string;
   region?: string;
   type?: 'house' | 'condo' | 'apartment' | 'studio' | 'villa' | 'townhouse' | 'village';
   minPrice?: number;
