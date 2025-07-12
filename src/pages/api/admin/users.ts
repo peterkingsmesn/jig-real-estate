@@ -173,8 +173,19 @@ export default async function handler(
           });
         }
 
+        // deleteUserId가 배열인 경우 첫 번째 값 사용
+        const deleteUserIdString = Array.isArray(deleteUserId) ? deleteUserId[0] : deleteUserId;
+        
+        // ObjectId 유효성 검사
+        if (!ObjectId.isValid(deleteUserIdString)) {
+          return res.status(400).json({
+            success: false,
+            error: 'Invalid user ID format'
+          });
+        }
+
         const deleteResult = await db.collection('users').updateOne(
-          { _id: deleteUserId },
+          { _id: new ObjectId(deleteUserIdString) },
           { 
             $set: { 
               isActive: false,
