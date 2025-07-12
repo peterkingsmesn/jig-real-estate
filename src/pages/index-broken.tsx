@@ -377,7 +377,7 @@ export default function Home() {
                           <div className="flex items-center text-gray-500 text-xs">
                             <span>{new Date(property.createdAt).toLocaleDateString()}</span>
                             <span className="mx-1">·</span>
-                            <MapPin className="mr-1" size={10} />
+                            <MapPin className="mr-1 w-[10px] h-[10px]" />
                             <span>{property.region}</span>
                           </div>
                         </div>
@@ -425,7 +425,7 @@ export default function Home() {
                       <div className="flex items-center justify-between text-gray-500 text-sm">
                         <div className="flex items-center space-x-2">
                           <span className="flex items-center">
-                            <ThumbsUp className="text-blue-500 mr-1" size={14} />
+                            <ThumbsUp className="text-blue-500 mr-1 w-[14px] h-[14px]" />
                             {property.likeCount || 0}
                           </span>
                         </div>
@@ -443,21 +443,21 @@ export default function Home() {
                           onClick={() => handlePropertyLike(property)}
                           className="flex items-center justify-center space-x-2 text-gray-600 hover:bg-gray-100 px-4 py-2 rounded-lg transition-colors flex-1"
                         >
-                          <ThumbsUp size={18} />
+                          <ThumbsUp className="w-[18px] h-[18px]" />
                           <span className="text-sm font-medium">좋아요</span>
                         </button>
                         <button 
                           onClick={() => router.push(`/property/${property.id}`)}
                           className="flex items-center justify-center space-x-2 text-gray-600 hover:bg-gray-100 px-4 py-2 rounded-lg transition-colors flex-1"
                         >
-                          <MessageCircle size={18} />
+                          <MessageCircle className="w-[18px] h-[18px]" />
                           <span className="text-sm font-medium">댓글</span>
                         </button>
                         <button 
                           onClick={() => handlePropertyShare(property)}
                           className="flex items-center justify-center space-x-2 text-gray-600 hover:bg-gray-100 px-4 py-2 rounded-lg transition-colors flex-1"
                         >
-                          <Share2 size={18} />
+                          <Share2 className="w-[18px] h-[18px]" />
                           <span className="text-sm font-medium">공유</span>
                         </button>
                       </div>
