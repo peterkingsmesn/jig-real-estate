@@ -164,8 +164,12 @@ export default function MessagesPage() {
             email: session?.user?.email || '',
             image: session?.user?.image || undefined
           },
-          fromUserEmail: session?.user?.email || '',
-          toUserEmail: selectedConversation,
+          toUser: {
+            id: selectedConversation,
+            name: selectedConversation,
+            email: selectedConversation,
+            image: undefined
+          },
           subject: 'Re: 답장',
           content: replyMessage,
           createdAt: new Date().toISOString(),
