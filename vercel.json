@@ -5,7 +5,4 @@
       "schedule": "0 0 * * *"
     }
   ],
-  "env": {
-    "CRON_SECRET": "@cron_secret"
-  }
 }
