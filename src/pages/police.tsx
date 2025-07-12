@@ -83,7 +83,7 @@ export default function PolicePage() {
   });
 
   const getCategoryName = (category: any) => {
-    switch (currentLanguage) {
+    switch (currentLanguage as string) {
       case 'ko': return category.name;
       case 'tl': return category.nameTl;
       default: return category.nameEn;
@@ -91,7 +91,7 @@ export default function PolicePage() {
   };
 
   const getNewsTitle = (news: any) => {
-    switch (currentLanguage) {
+    switch (currentLanguage as string) {
       case 'ko': return news.titleKo;
       case 'tl': return news.titleTl;
       default: return news.title;
@@ -99,7 +99,7 @@ export default function PolicePage() {
   };
 
   const getNewsContent = (news: any) => {
-    switch (currentLanguage) {
+    switch (currentLanguage as string) {
       case 'ko': return news.contentKo;
       case 'tl': return news.contentTl;
       default: return news.content;
