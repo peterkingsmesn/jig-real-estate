@@ -344,11 +344,11 @@ export default function MessagesPage() {
                       {messages.map((message) => (
                         <div
                           key={message.id}
-                          className={`flex ${message.fromUserEmail === session?.user?.email ? 'justify-end' : 'justify-start'}`}
+                          className={`flex ${message.fromUser.email === session?.user?.email ? 'justify-end' : 'justify-start'}`}
                         >
                           <div
                             className={`max-w-xs lg:max-w-md px-4 py-2 rounded-lg ${
-                              message.fromUserEmail === session?.user?.email
+                              message.fromUser.email === session?.user?.email
                                 ? 'bg-blue-600 text-white'
                                 : 'bg-gray-200 text-gray-800'
                             }`}
@@ -358,10 +358,10 @@ export default function MessagesPage() {
                             )}
                             <div className="text-sm">{message.content}</div>
                             <div className={`text-xs mt-1 ${
-                              message.fromUserEmail === session?.user?.email ? 'text-blue-200' : 'text-gray-500'
+                              message.fromUser.email === session?.user?.email ? 'text-blue-200' : 'text-gray-500'
                             }`}>
                               {new Date(message.createdAt).toLocaleString('ko-KR')}
-                              {!message.isRead && message.fromUserEmail !== session?.user?.email && (
+                              {!message.isRead && message.fromUser.email !== session?.user?.email && (
                                 <span className="ml-2 bg-red-500 text-white text-xs px-1 rounded">새 메시지</span>
                               )}
                             </div>
