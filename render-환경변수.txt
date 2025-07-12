@@ -1,0 +1,25 @@
+환경 변수 설정 (하나씩 복사해서 사용하세요)
+
+1번째:
+Key: NODE_ENV
+Value: production
+
+2번째:
+Key: MONGODB_URI
+Value: mongodb+srv://jigadmin:red4193@cluster0.2onzoan.mongodb.net/jig-db?retryWrites=true&w=majority&appName=Cluster0
+
+3번째:
+Key: JWT_SECRET
+Value: your-super-secret-jwt-key-2024
+
+4번째:
+Key: JWT_REFRESH_SECRET
+Value: your-refresh-secret-key-2024
+
+5번째:
+Key: ALLOWED_ORIGINS
+Value: https://spectacular-manatee-e5e425.netlify.app
+
+--------------------
+중요: 각 Value는 한 줄로 입력하세요!
+MongoDB URI에 줄바꿈이 없도록 주의하세요!

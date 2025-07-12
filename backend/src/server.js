@@ -18,7 +18,10 @@ const propertyRoutes = require('./routes/propertyRoutes');
 const app = express();
 
 // 데이터베이스 연결
-connectDB();
+connectDB().catch(err => {
+  logger.error('MongoDB connection failed:', err);
+  console.error('MongoDB connection failed:', err);
+});
 
 // 미들웨어 설정
 app.use(helmet());

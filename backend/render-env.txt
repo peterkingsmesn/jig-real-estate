@@ -1,0 +1,10 @@
+NODE_ENV=production
+MONGODB_URI=mongodb+srv://jigadmin:실제비밀번호@cluster0.2onzoan.mongodb.net/jig-db?retryWrites=true&w=majority&appName=Cluster0
+JWT_SECRET=your-super-secret-jwt-key-change-this-2024
+JWT_EXPIRE=7d
+JWT_REFRESH_SECRET=your-refresh-secret-key-change-this-2024
+JWT_REFRESH_EXPIRE=30d
+ALLOWED_ORIGINS=https://spectacular-manatee-e5e425.netlify.app
+RATE_LIMIT_WINDOW_MS=900000
+RATE_LIMIT_MAX_REQUESTS=100
+LOG_LEVEL=info
