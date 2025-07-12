@@ -208,7 +208,7 @@ export default function SellItemPage() {
           price: formData.priceType === 'free' ? 0 : parseFloat(formData.price),
           category: formData.category,
           condition: formData.condition,
-          location: `${getSelectedRegion()?.name}, ${formData.district}`,
+          location: `${getSelectedRegion()?.name}, ${formData.districtId || ''}`,
           sellerName: formData.contactName,
           sellerContact: formData.contactPhone,
           images: [] // 이미지 업로드는 추후 구현
