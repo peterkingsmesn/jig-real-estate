@@ -1,0 +1,1 @@
+mongodb+srv://jigadmin:red4193@cluster0.2onzoan.mongodb.net/jig-db?retryWrites=true&w=majority&appName=Cluster0
