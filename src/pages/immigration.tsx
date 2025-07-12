@@ -79,7 +79,7 @@ export default function ImmigrationPage() {
   });
 
   const getCategoryName = (category: any) => {
-    switch (currentLanguage) {
+    switch (currentLanguage as string) {
       case 'ko': return category.name;
       case 'tl': return category.nameTl;
       default: return category.nameEn;
@@ -87,7 +87,7 @@ export default function ImmigrationPage() {
   };
 
   const getNewsTitle = (news: any) => {
-    switch (currentLanguage) {
+    switch (currentLanguage as string) {
       case 'ko': return news.titleKo;
       case 'tl': return news.titleTl;
       default: return news.title;
@@ -95,7 +95,7 @@ export default function ImmigrationPage() {
   };
 
   const getNewsContent = (news: any) => {
-    switch (currentLanguage) {
+    switch (currentLanguage as string) {
       case 'ko': return news.contentKo;
       case 'tl': return news.contentTl;
       default: return news.content;
