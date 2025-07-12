@@ -209,8 +209,8 @@ export default function SellItemPage() {
           category: formData.category,
           condition: formData.condition,
           location: `${getSelectedRegion()?.name}, ${formData.districtId || ''}`,
-          sellerName: formData.contactName,
-          sellerContact: formData.contactPhone,
+          sellerName: 'User', // TODO: Get from session
+          sellerContact: 'Contact via platform',
           images: [] // 이미지 업로드는 추후 구현
         })
       });
