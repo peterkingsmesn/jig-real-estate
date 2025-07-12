@@ -373,6 +373,7 @@ export default function AngelesPage() {
               <PropertySearch 
                 filters={filters}
                 onFiltersChange={handleFiltersChange}
+                onSearch={() => {}}
                 language={currentLanguage}
               />
             </div>

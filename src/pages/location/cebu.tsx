@@ -290,6 +290,7 @@ export default function CebuPage() {
               <PropertySearch 
                 filters={filters}
                 onFiltersChange={handleFiltersChange}
+                onSearch={() => {}}
                 language={currentLanguage}
               />
             </div>
