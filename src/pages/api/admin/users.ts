@@ -2,6 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '../auth/[...nextauth]';
 import clientPromise from '../../../lib/mongodb';
+import { ObjectId } from 'mongodb';
 
 interface User {
   _id: string;
@@ -133,8 +134,19 @@ export default async function handler(
         if (newRole) updateData.role = newRole;
         if (typeof isActive === 'boolean') updateData.isActive = isActive;
 
+        // userId가 배열인 경우 첫 번째 값 사용
+        const userIdString = Array.isArray(userId) ? userId[0] : userId;
+        
+        // ObjectId 유효성 검사
+        if (!ObjectId.isValid(userIdString)) {
+          return res.status(400).json({
+            success: false,
+            error: 'Invalid user ID format'
+          });
+        }
+
         const result = await db.collection('users').updateOne(
-          { _id: userId },
+          { _id: new ObjectId(userIdString) },
           { $set: updateData }
         );
 
