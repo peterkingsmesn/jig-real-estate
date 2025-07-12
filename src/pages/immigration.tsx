@@ -364,7 +364,7 @@ export default function ImmigrationPage() {
                            'Attachments'}
                         </h4>
                         <div className="space-y-2">
-                          {news.attachments.map((attachment, index) => (
+                          {news.attachments.map((attachment: string, index: number) => (
                             <div key={index} className="flex items-center space-x-2 text-sm text-blue-600 hover:text-blue-700">
                               <Download className="h-4 w-4" />
                               <span className="cursor-pointer hover:underline">{attachment}</span>
@@ -383,7 +383,7 @@ export default function ImmigrationPage() {
                            'Related Links'}
                         </h4>
                         <div className="space-y-2">
-                          {news.relatedLinks.map((link, index) => (
+                          {news.relatedLinks.map((link: string, index: number) => (
                             <div key={index} className="flex items-center space-x-2 text-sm text-blue-600 hover:text-blue-700">
                               <ExternalLink className="h-4 w-4" />
                               <a href={link} target="_blank" rel="noopener noreferrer" className="hover:underline">
