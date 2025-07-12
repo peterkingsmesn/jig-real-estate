@@ -196,10 +196,10 @@ export default function FAQPage() {
                 ❓ Frequently Asked Questions
               </h1>
               <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-                {currentLanguage === 'ko' && '필리핀 렌탈에 대한 자주 묻는 질문들을 확인하세요. 더 궁금한 점이 있으시면 언제든 문의해주세요.'}
-                {currentLanguage === 'zh' && '查看有关菲律宾租房的常见问题。如有其他疑问，请随时联系我们。'}
-                {currentLanguage === 'ja' && 'フィリピン賃貸に関するよくある質問をご確認ください。他にご質問がございましたら、お気軽にお問い合わせください。'}
-                {currentLanguage === 'en' && 'Find answers to common questions about renting in the Philippines. Contact us if you have any other questions.'}
+                {(currentLanguage as string) === 'ko' && '필리핀 렌탈에 대한 자주 묻는 질문들을 확인하세요. 더 궁금한 점이 있으시면 언제든 문의해주세요.'}
+                {(currentLanguage as string) === 'zh' && '查看有关菲律宾租房的常见问题。如有其他疑问，请随时联系我们。'}
+                {(currentLanguage as string) === 'ja' && 'フィリピン賃貸に関するよくある質問をご確認ください。他にご質問がございましたら、お気軽にお問い合わせください。'}
+                {(currentLanguage as string) === 'en' && 'Find answers to common questions about renting in the Philippines. Contact us if you have any other questions.'}
               </p>
 
               {/* Search Bar */}
