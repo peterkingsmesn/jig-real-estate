@@ -4,5 +4,5 @@
       "path": "/api/cron/daily-updates",
       "schedule": "0 0 * * *"
     }
-  ],
+  ]
 }
