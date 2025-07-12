@@ -144,13 +144,13 @@ export default function WeatherPage() {
           <main className="py-8">
             <div className="text-center mb-8">
               <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                🌪️ {currentLanguage === 'ko' ? '날씨/태풍 정보' :
-                     currentLanguage === 'tl' ? 'Panahon at Bagyo' :
+                🌪️ {(currentLanguage as string) === 'ko' ? '날씨/태풍 정보' :
+                     (currentLanguage as string) === 'tl' ? 'Panahon at Bagyo' :
                      'Weather & Typhoon'}
               </h1>
               <p className="text-xl text-gray-600 mb-6">
-                {currentLanguage === 'ko' ? '필리핀 전역의 실시간 날씨 정보와 태풍 경보를 확인하세요' :
-                 currentLanguage === 'tl' ? 'Tingnan ang real-time na panahon at typhoon alerts sa buong Pilipinas' :
+                {(currentLanguage as string) === 'ko' ? '필리핀 전역의 실시간 날씨 정보와 태풍 경보를 확인하세요' :
+                 (currentLanguage as string) === 'tl' ? 'Tingnan ang real-time na panahon at typhoon alerts sa buong Pilipinas' :
                  'Get real-time weather information and typhoon alerts across the Philippines'}
               </p>
             </div>
@@ -162,8 +162,8 @@ export default function WeatherPage() {
                   <div className="text-orange-400 mr-3">⚠️</div>
                   <div>
                     <h3 className="text-lg font-semibold text-orange-800">
-                      {currentLanguage === 'ko' ? '현재 기상 경보' :
-                       currentLanguage === 'tl' ? 'Kasalukuyang Weather Alert' :
+                      {(currentLanguage as string) === 'ko' ? '현재 기상 경보' :
+                       (currentLanguage as string) === 'tl' ? 'Kasalukuyang Weather Alert' :
                        'Current Weather Alert'}
                     </h3>
                     <p className="text-orange-700">
@@ -213,8 +213,8 @@ export default function WeatherPage() {
             {/* City Selector */}
             <div className="mb-8">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                {currentLanguage === 'ko' ? '도시 선택' :
-                 currentLanguage === 'tl' ? 'Pumili ng Lungsod' :
+                {(currentLanguage as string) === 'ko' ? '도시 선택' :
+                 (currentLanguage as string) === 'tl' ? 'Pumili ng Lungsod' :
                  'Select City'}
               </h3>
               <div className="flex flex-wrap gap-2">
@@ -241,14 +241,14 @@ export default function WeatherPage() {
                   <div className="text-center">
                     <div className="text-4xl mb-4">{service.icon}</div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                      {currentLanguage === 'ko' ? service.name :
-                       currentLanguage === 'tl' ? service.nameTl :
+                      {(currentLanguage as string) === 'ko' ? service.name :
+                       (currentLanguage as string) === 'tl' ? service.nameTl :
                        service.nameEn}
                     </h3>
                     <p className="text-sm text-gray-600 mb-4">{service.description}</p>
                     <button className="w-full px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
-                      {currentLanguage === 'ko' ? '확인하기' :
-                       currentLanguage === 'tl' ? 'Tingnan' :
+                      {(currentLanguage as string) === 'ko' ? '확인하기' :
+                       (currentLanguage as string) === 'tl' ? 'Tingnan' :
                        'View'}
                     </button>
                   </div>
@@ -259,16 +259,16 @@ export default function WeatherPage() {
             {/* Regional Weather */}
             <div className="mb-8">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                {currentLanguage === 'ko' ? '지역별 날씨' :
-                 currentLanguage === 'tl' ? 'Panahon ayon sa Rehiyon' :
+                {(currentLanguage as string) === 'ko' ? '지역별 날씨' :
+                 (currentLanguage as string) === 'tl' ? 'Panahon ayon sa Rehiyon' :
                  'Regional Weather'}
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {regions.map((region) => (
                   <div key={region.id} className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
                     <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                      {currentLanguage === 'ko' ? region.name :
-                       currentLanguage === 'tl' ? region.nameTl :
+                      {(currentLanguage as string) === 'ko' ? region.name :
+                       (currentLanguage as string) === 'tl' ? region.nameTl :
                        region.nameEn}
                     </h3>
                     <div className="space-y-3">
@@ -306,8 +306,8 @@ export default function WeatherPage() {
             {currentWeather?.forecast && (
               <div className="mb-8">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                  {currentLanguage === 'ko' ? '7일 예보' :
-                   currentLanguage === 'tl' ? '7 Araw na Forecast' :
+                  {(currentLanguage as string) === 'ko' ? '7일 예보' :
+                   (currentLanguage as string) === 'tl' ? '7 Araw na Forecast' :
                    '7-Day Forecast'} - {currentWeather.location}
                 </h2>
                 <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
@@ -316,8 +316,8 @@ export default function WeatherPage() {
                       <div key={day.date} className="text-center p-4 rounded-lg bg-gray-50">
                         <div className="font-medium text-gray-900 mb-2">
                           {index === 0 ? (
-                            currentLanguage === 'ko' ? '내일' :
-                            currentLanguage === 'tl' ? 'Bukas' : 'Tomorrow'
+                            (currentLanguage as string) === 'ko' ? '내일' :
+                            (currentLanguage as string) === 'tl' ? 'Bukas' : 'Tomorrow'
                           ) : new Date(day.date).toLocaleDateString('en', { weekday: 'short' })}
                         </div>
                         <div className="text-3xl mb-2">{day.icon}</div>
@@ -337,8 +337,8 @@ export default function WeatherPage() {
             {/* Alert Levels Guide */}
             <div className="mb-8">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                {currentLanguage === 'ko' ? '경보 단계 안내' :
-                 currentLanguage === 'tl' ? 'Gabay sa Alert Levels' :
+                {(currentLanguage as string) === 'ko' ? '경보 단계 안내' :
+                 (currentLanguage as string) === 'tl' ? 'Gabay sa Alert Levels' :
                  'Alert Levels Guide'}
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -347,8 +347,8 @@ export default function WeatherPage() {
                     <div className="flex items-center mb-2">
                       <div className={`w-4 h-4 rounded-full bg-${alert.color}-500 mr-2`}></div>
                       <h3 className="font-semibold">
-                        {currentLanguage === 'ko' ? alert.name :
-                         currentLanguage === 'tl' ? alert.nameTl :
+                        {(currentLanguage as string) === 'ko' ? alert.name :
+                         (currentLanguage as string) === 'tl' ? alert.nameTl :
                          alert.nameEn}
                       </h3>
                     </div>
@@ -361,21 +361,21 @@ export default function WeatherPage() {
             {/* Weather Map */}
             <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200 mb-8">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                {currentLanguage === 'ko' ? '필리핀 날씨 지도' :
-                 currentLanguage === 'tl' ? 'Weather Map ng Pilipinas' :
+                {(currentLanguage as string) === 'ko' ? '필리핀 날씨 지도' :
+                 (currentLanguage as string) === 'tl' ? 'Weather Map ng Pilipinas' :
                  'Philippines Weather Map'}
               </h3>
               <div className="bg-blue-50 h-64 rounded-lg flex items-center justify-center">
                 <div className="text-center">
                   <div className="text-4xl mb-2">🗺️</div>
                   <p className="text-gray-600">
-                    {currentLanguage === 'ko' ? '대화형 날씨 지도' :
-                     currentLanguage === 'tl' ? 'Interactive Weather Map' :
+                    {(currentLanguage as string) === 'ko' ? '대화형 날씨 지도' :
+                     (currentLanguage as string) === 'tl' ? 'Interactive Weather Map' :
                      'Interactive Weather Map'}
                   </p>
                   <button className="mt-4 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
-                    {currentLanguage === 'ko' ? '전체 지도 보기' :
-                     currentLanguage === 'tl' ? 'Tingnan ang Buong Mapa' :
+                    {(currentLanguage as string) === 'ko' ? '전체 지도 보기' :
+                     (currentLanguage as string) === 'tl' ? 'Tingnan ang Buong Mapa' :
                      'View Full Map'}
                   </button>
                 </div>
@@ -385,8 +385,8 @@ export default function WeatherPage() {
             {/* Emergency Contacts */}
             <div className="bg-red-50 border border-red-200 rounded-xl p-6">
               <h3 className="text-lg font-semibold text-red-900 mb-2">
-                🚨 {currentLanguage === 'ko' ? '긴급 연락처' :
-                    currentLanguage === 'tl' ? 'Emergency Contacts' :
+                🚨 {(currentLanguage as string) === 'ko' ? '긴급 연락처' :
+                    (currentLanguage as string) === 'tl' ? 'Emergency Contacts' :
                     'Emergency Contacts'}
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">

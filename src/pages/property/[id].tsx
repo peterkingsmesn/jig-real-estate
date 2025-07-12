@@ -184,8 +184,8 @@ export default function PropertyPage({ property }: PropertyPageProps) {
         }}
       />
 
-      {/* 리뷰 스키마 */}
-      {reviews.map((review) => (
+      {/* 리뷰 스키마 - TODO: 실제 리뷰 데이터 연동 */}
+      {/* {reviews.map((review) => (
         <ReviewSchema
           key={review.id}
           itemReviewed={{
@@ -202,7 +202,7 @@ export default function PropertyPage({ property }: PropertyPageProps) {
           reviewBody={review.comment}
           datePublished={review.date}
         />
-      ))}
+      ))} */}
 
       <FacebookLayout>
         {/* 페이스북 스타일 이미지 갤러리 */}

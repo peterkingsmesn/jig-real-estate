@@ -192,18 +192,18 @@ export default function MarketplacePage() {
                   <div className="flex items-center space-x-1">
                     <Shield className="h-4 w-4 text-green-600" />
                     <span>
-                      {currentLanguage === 'ko' ? '안전 거래' :
-                       currentLanguage === 'zh' ? '安全交易' :
-                       currentLanguage === 'ja' ? '安全取引' :
+                      {(currentLanguage as string) === 'ko' ? '안전 거래' :
+                       (currentLanguage as string) === 'zh' ? '安全交易' :
+                       (currentLanguage as string) === 'ja' ? '安全取引' :
                        'Safe Trading'}
                     </span>
                   </div>
                   <div className="flex items-center space-x-1">
                     <Star className="h-4 w-4 text-yellow-600" />
                     <span>
-                      {currentLanguage === 'ko' ? '신뢰 시스템' :
-                       currentLanguage === 'zh' ? '信任系统' :
-                       currentLanguage === 'ja' ? '信頼システム' :
+                      {(currentLanguage as string) === 'ko' ? '신뢰 시스템' :
+                       (currentLanguage as string) === 'zh' ? '信任系统' :
+                       (currentLanguage as string) === 'ja' ? '信頼システム' :
                        'Trust System'}
                     </span>
                   </div>
@@ -216,16 +216,16 @@ export default function MarketplacePage() {
                   <div className="flex items-center justify-center space-x-2 text-blue-800">
                     <LogIn className="h-5 w-5" />
                     <span className="font-medium">
-                      {currentLanguage === 'ko' ? '로그인하고 더 많은 기능을 이용하세요!' :
-                       currentLanguage === 'zh' ? '登录享受更多功能！' :
-                       currentLanguage === 'ja' ? 'ログインしてより多くの機能をご利用ください！' :
+                      {(currentLanguage as string) === 'ko' ? '로그인하고 더 많은 기능을 이용하세요!' :
+                       (currentLanguage as string) === 'zh' ? '登录享受更多功能！' :
+                       (currentLanguage as string) === 'ja' ? 'ログインしてより多くの機能をご利用ください！' :
                        'Login to access more features!'}
                     </span>
                   </div>
                   <p className="text-sm text-blue-600 mt-1">
-                    {currentLanguage === 'ko' ? '상품 등록, 메시지 보내기, 찜하기 등' :
-                     currentLanguage === 'zh' ? '商品发布、发送消息、收藏等' :
-                     currentLanguage === 'ja' ? '商品登録、メッセージ送信、お気に入り等' :
+                    {(currentLanguage as string) === 'ko' ? '상품 등록, 메시지 보내기, 찜하기 등' :
+                     (currentLanguage as string) === 'zh' ? '商品发布、发送消息、收藏等' :
+                     (currentLanguage as string) === 'ja' ? '商品登録、メッセージ送信、お気に入り等' :
                      'Post items, send messages, save favorites and more'}
                   </p>
                 </div>
@@ -264,9 +264,9 @@ export default function MarketplacePage() {
                   <input
                     type="text"
                     placeholder={
-                      currentLanguage === 'ko' ? '무엇을 찾고 계신가요? (예: iPhone, 소파, 자동차)' :
-                      currentLanguage === 'zh' ? '您在寻找什么？（例如：iPhone、沙发、汽车）' :
-                      currentLanguage === 'ja' ? '何をお探しですか？（例：iPhone、ソファ、車）' :
+                      (currentLanguage as string) === 'ko' ? '무엇을 찾고 계신가요? (예: iPhone, 소파, 자동차)' :
+                      (currentLanguage as string) === 'zh' ? '您在寻找什么？（例如：iPhone、沙发、汽车）' :
+                      (currentLanguage as string) === 'ja' ? '何をお探しですか？（例：iPhone、ソファ、車）' :
                       'What are you looking for? (e.g. iPhone, sofa, car)'
                     }
                     value={searchTerm}
@@ -349,7 +349,7 @@ export default function MarketplacePage() {
                               className="rounded border-gray-300 text-blue-600 focus:ring-blue-500 mr-2"
                             />
                             <span className="text-sm text-gray-700">
-                              {currentLanguage === 'ko' ? condition.label : condition.labelEn}
+                              {(currentLanguage as string) === 'ko' ? condition.label : condition.labelEn}
                             </span>
                           </label>
                         ))}
@@ -391,8 +391,8 @@ export default function MarketplacePage() {
                 <div>
                   <h2 className="text-2xl font-bold text-gray-900">
                     {activeSubSection === 'all' 
-                      ? (currentLanguage === 'ko' ? '전체 상품' : 'All Items')
-                      : (currentLanguage === 'ko' ? 
+                      ? ((currentLanguage as string) === 'ko' ? '전체 상품' : 'All Items')
+                      : ((currentLanguage as string) === 'ko' ? 
                           subSections.find(s => s.id === activeSubSection)?.name : 
                           subSections.find(s => s.id === activeSubSection)?.nameEn)
                     }
@@ -512,25 +512,25 @@ export default function MarketplacePage() {
                 <div className="bg-white rounded-xl p-4 text-center shadow-sm border border-gray-200">
                   <div className="text-2xl font-bold text-blue-600">{sampleItems.length}</div>
                   <div className="text-sm text-gray-600">
-                    {currentLanguage === 'ko' ? '전체 상품' : 'Total Items'}
+                    {(currentLanguage as string) === 'ko' ? '전체 상품' : 'Total Items'}
                   </div>
                 </div>
                 <div className="bg-white rounded-xl p-4 text-center shadow-sm border border-gray-200">
                   <div className="text-2xl font-bold text-green-600">8,901</div>
                   <div className="text-sm text-gray-600">
-                    {currentLanguage === 'ko' ? '완료된 거래' : 'Completed Deals'}
+                    {(currentLanguage as string) === 'ko' ? '완료된 거래' : 'Completed Deals'}
                   </div>
                 </div>
                 <div className="bg-white rounded-xl p-4 text-center shadow-sm border border-gray-200">
                   <div className="text-2xl font-bold text-purple-600">2,567</div>
                   <div className="text-sm text-gray-600">
-                    {currentLanguage === 'ko' ? '인증 판매자' : 'Verified Sellers'}
+                    {(currentLanguage as string) === 'ko' ? '인증 판매자' : 'Verified Sellers'}
                   </div>
                 </div>
                 <div className="bg-white rounded-xl p-4 text-center shadow-sm border border-gray-200">
                   <div className="text-2xl font-bold text-orange-600">4.8/5</div>
                   <div className="text-sm text-gray-600">
-                    {currentLanguage === 'ko' ? '평균 평점' : 'Average Rating'}
+                    {(currentLanguage as string) === 'ko' ? '평균 평점' : 'Average Rating'}
                   </div>
                 </div>
               </div>
@@ -540,15 +540,15 @@ export default function MarketplacePage() {
             <div className="bg-gradient-to-r from-blue-50 to-green-50 rounded-2xl p-8 mb-8">
               <div className="text-center mb-6">
                 <h2 className="text-2xl font-bold text-gray-900 mb-2">
-                  {currentLanguage === 'ko' ? '🛡️ 안전한 거래를 위한 가이드' :
-                   currentLanguage === 'zh' ? '🛡️ 安全交易指南' :
-                   currentLanguage === 'ja' ? '🛡️ 安全取引ガイド' :
+                  {(currentLanguage as string) === 'ko' ? '🛡️ 안전한 거래를 위한 가이드' :
+                   (currentLanguage as string) === 'zh' ? '🛡️ 安全交易指南' :
+                   (currentLanguage as string) === 'ja' ? '🛡️ 安全取引ガイド' :
                    '🛡️ Safe Trading Guidelines'}
                 </h2>
                 <p className="text-gray-600">
-                  {currentLanguage === 'ko' ? '사기를 방지하고 안전한 거래를 위해 다음 가이드라인을 따라주세요' :
-                   currentLanguage === 'zh' ? '请遵循以下准则以防止欺诈并确保安全交易' :
-                   currentLanguage === 'ja' ? '詐欺を防止し安全な取引のため、以下のガイドラインに従ってください' :
+                  {(currentLanguage as string) === 'ko' ? '사기를 방지하고 안전한 거래를 위해 다음 가이드라인을 따라주세요' :
+                   (currentLanguage as string) === 'zh' ? '请遵循以下准则以防止欺诈并确保安全交易' :
+                   (currentLanguage as string) === 'ja' ? '詐欺を防止し安全な取引のため、以下のガイドラインに従ってください' :
                    'Follow these guidelines to prevent fraud and ensure safe transactions'}
                 </p>
               </div>
@@ -559,10 +559,10 @@ export default function MarketplacePage() {
                     <Shield className="h-8 w-8 text-blue-600" />
                   </div>
                   <h3 className="font-semibold text-gray-900 mb-2">
-                    {currentLanguage === 'ko' ? '인증된 판매자' : 'Verified Sellers'}
+                    {(currentLanguage as string) === 'ko' ? '인증된 판매자' : 'Verified Sellers'}
                   </h3>
                   <p className="text-sm text-gray-600">
-                    {currentLanguage === 'ko' ? '신원이 확인된 판매자와 거래하세요' : 'Trade with identity-verified sellers'}
+                    {(currentLanguage as string) === 'ko' ? '신원이 확인된 판매자와 거래하세요' : 'Trade with identity-verified sellers'}
                   </p>
                 </div>
 
@@ -571,10 +571,10 @@ export default function MarketplacePage() {
                     <MapPin className="h-8 w-8 text-green-600" />
                   </div>
                   <h3 className="font-semibold text-gray-900 mb-2">
-                    {currentLanguage === 'ko' ? '공공장소 만남' : 'Public Meetups'}
+                    {(currentLanguage as string) === 'ko' ? '공공장소 만남' : 'Public Meetups'}
                   </h3>
                   <p className="text-sm text-gray-600">
-                    {currentLanguage === 'ko' ? '안전한 공공장소에서 거래하세요' : 'Meet in safe public places'}
+                    {(currentLanguage as string) === 'ko' ? '안전한 공공장소에서 거래하세요' : 'Meet in safe public places'}
                   </p>
                 </div>
 
@@ -583,10 +583,10 @@ export default function MarketplacePage() {
                     <MessageCircle className="h-8 w-8 text-purple-600" />
                   </div>
                   <h3 className="font-semibold text-gray-900 mb-2">
-                    {currentLanguage === 'ko' ? '플랫폼 내 채팅' : 'In-App Messaging'}
+                    {(currentLanguage as string) === 'ko' ? '플랫폼 내 채팅' : 'In-App Messaging'}
                   </h3>
                   <p className="text-sm text-gray-600">
-                    {currentLanguage === 'ko' ? '플랫폼 내에서 안전하게 소통하세요' : 'Communicate safely within the platform'}
+                    {(currentLanguage as string) === 'ko' ? '플랫폼 내에서 안전하게 소통하세요' : 'Communicate safely within the platform'}
                   </p>
                 </div>
               </div>
@@ -595,24 +595,24 @@ export default function MarketplacePage() {
             {/* CTA Section */}
             <div className="text-center">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                {currentLanguage === 'ko' ? '지금 시작해보세요!' :
-                 currentLanguage === 'zh' ? '立即开始！' :
-                 currentLanguage === 'ja' ? '今すぐ始めましょう！' :
+                {(currentLanguage as string) === 'ko' ? '지금 시작해보세요!' :
+                 (currentLanguage as string) === 'zh' ? '立即开始！' :
+                 (currentLanguage as string) === 'ja' ? '今すぐ始めましょう！' :
                  'Get Started Today!'}
               </h2>
               <p className="text-gray-600 mb-6">
-                {currentLanguage === 'ko' ? '수천 명의 사용자들이 이미 안전하고 편리한 거래를 경험하고 있습니다' :
-                 currentLanguage === 'zh' ? '成千上万的用户已经在体验安全便捷的交易' :
-                 currentLanguage === 'ja' ? '何千人ものユーザーが既に安全で便利な取引を体験しています' :
+                {(currentLanguage as string) === 'ko' ? '수천 명의 사용자들이 이미 안전하고 편리한 거래를 경험하고 있습니다' :
+                 (currentLanguage as string) === 'zh' ? '成千上万的用户已经在体验安全便捷的交易' :
+                 (currentLanguage as string) === 'ja' ? '何千人ものユーザーが既に安全で便利な取引を体験しています' :
                  'Thousands of users are already enjoying safe and convenient trading'}
               </p>
               <button
                 onClick={handleSellClick}
                 className="px-8 py-4 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition-colors shadow-lg"
               >
-                {currentLanguage === 'ko' ? '무료로 판매 시작하기' :
-                 currentLanguage === 'zh' ? '免费开始销售' :
-                 currentLanguage === 'ja' ? '無料で販売開始' :
+                {(currentLanguage as string) === 'ko' ? '무료로 판매 시작하기' :
+                 (currentLanguage as string) === 'zh' ? '免费开始销售' :
+                 (currentLanguage as string) === 'ja' ? '無料で販売開始' :
                  'Start Selling for Free'}
               </button>
             </div>

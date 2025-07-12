@@ -83,7 +83,7 @@ export default function PolicePage() {
   });
 
   const getCategoryName = (category: any) => {
-    switch (currentLanguage as string) {
+    switch ((currentLanguage as string) as string) {
       case 'ko': return category.name;
       case 'tl': return category.nameTl;
       default: return category.nameEn;
@@ -91,7 +91,7 @@ export default function PolicePage() {
   };
 
   const getNewsTitle = (news: any) => {
-    switch (currentLanguage as string) {
+    switch ((currentLanguage as string) as string) {
       case 'ko': return news.titleKo;
       case 'tl': return news.titleTl;
       default: return news.title;
@@ -99,7 +99,7 @@ export default function PolicePage() {
   };
 
   const getNewsContent = (news: any) => {
-    switch (currentLanguage as string) {
+    switch ((currentLanguage as string) as string) {
       case 'ko': return news.contentKo;
       case 'tl': return news.contentTl;
       default: return news.content;
@@ -126,7 +126,7 @@ export default function PolicePage() {
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
-    return date.toLocaleDateString(currentLanguage === 'ko' ? 'ko-KR' : 'en-US', {
+    return date.toLocaleDateString((currentLanguage as string) === 'ko' ? 'ko-KR' : 'en-US', {
       year: 'numeric',
       month: 'long',
       day: 'numeric'
@@ -148,13 +148,13 @@ export default function PolicePage() {
             {/* Hero Section */}
             <div className="text-center mb-8">
               <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                🚔 {currentLanguage === 'ko' ? '경찰국 발표내용' :
-                     currentLanguage === 'tl' ? 'Mga Anunsyo ng Philippine National Police' :
+                🚔 {(currentLanguage as string) === 'ko' ? '경찰국 발표내용' :
+                     (currentLanguage as string) === 'tl' ? 'Mga Anunsyo ng Philippine National Police' :
                      'Police Announcements'}
               </h1>
               <p className="text-xl text-gray-600 mb-6">
-                {currentLanguage === 'ko' ? '필리핀 국가경찰의 최신 발표 및 안전 정보를 확인하세요' :
-                 currentLanguage === 'tl' ? 'Tingnan ang mga pinakabagong anunsyo at safety information ng Philippine National Police' :
+                {(currentLanguage as string) === 'ko' ? '필리핀 국가경찰의 최신 발표 및 안전 정보를 확인하세요' :
+                 (currentLanguage as string) === 'tl' ? 'Tingnan ang mga pinakabagong anunsyo at safety information ng Philippine National Police' :
                  'Stay informed with the latest announcements and safety information from the Philippine National Police'}
               </p>
             </div>
@@ -166,8 +166,8 @@ export default function PolicePage() {
                   <Shield className="h-5 w-5 text-red-400 mr-3" />
                   <div>
                     <h3 className="text-lg font-semibold text-red-800">
-                      {currentLanguage === 'ko' ? '긴급 안전 공지' :
-                       currentLanguage === 'tl' ? 'Mga Urgent Safety Notice' :
+                      {(currentLanguage as string) === 'ko' ? '긴급 안전 공지' :
+                       (currentLanguage as string) === 'tl' ? 'Mga Urgent Safety Notice' :
                        'Urgent Safety Notices'}
                     </h3>
                     <div className="mt-2 space-y-2">
@@ -186,8 +186,8 @@ export default function PolicePage() {
             {/* Emergency Hotlines */}
             <div className="bg-blue-50 rounded-xl p-6 mb-8">
               <h3 className="text-lg font-semibold text-blue-900 mb-4">
-                🚨 {currentLanguage === 'ko' ? '긴급 신고 전화' :
-                    currentLanguage === 'tl' ? 'Emergency Hotlines' :
+                🚨 {(currentLanguage as string) === 'ko' ? '긴급 신고 전화' :
+                    (currentLanguage as string) === 'tl' ? 'Emergency Hotlines' :
                     'Emergency Hotlines'}
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
@@ -217,8 +217,8 @@ export default function PolicePage() {
                   <input
                     type="text"
                     placeholder={
-                      currentLanguage === 'ko' ? '공지사항 검색...' :
-                      currentLanguage === 'tl' ? 'Maghanap ng announcement...' :
+                      (currentLanguage as string) === 'ko' ? '공지사항 검색...' :
+                      (currentLanguage as string) === 'tl' ? 'Maghanap ng announcement...' :
                       'Search announcements...'
                     }
                     value={searchTerm}
@@ -307,8 +307,8 @@ export default function PolicePage() {
                     {news.attachments.length > 0 && (
                       <div className="mb-4">
                         <h4 className="text-sm font-semibold text-gray-900 mb-2">
-                          {currentLanguage === 'ko' ? '첨부파일' :
-                           currentLanguage === 'tl' ? 'Mga Attachment' :
+                          {(currentLanguage as string) === 'ko' ? '첨부파일' :
+                           (currentLanguage as string) === 'tl' ? 'Mga Attachment' :
                            'Attachments'}
                         </h4>
                         <div className="space-y-2">
@@ -326,8 +326,8 @@ export default function PolicePage() {
                     {news.relatedLinks.length > 0 && (
                       <div className="mb-4">
                         <h4 className="text-sm font-semibold text-gray-900 mb-2">
-                          {currentLanguage === 'ko' ? '관련 링크' :
-                           currentLanguage === 'tl' ? 'Mga Related Link' :
+                          {(currentLanguage as string) === 'ko' ? '관련 링크' :
+                           (currentLanguage as string) === 'tl' ? 'Mga Related Link' :
                            'Related Links'}
                         </h4>
                         <div className="space-y-2">
@@ -354,13 +354,13 @@ export default function PolicePage() {
                   <Shield className="h-12 w-12 text-gray-400" />
                 </div>
                 <h3 className="text-lg font-medium text-gray-900 mb-2">
-                  {currentLanguage === 'ko' ? '검색 결과가 없습니다' :
-                   currentLanguage === 'tl' ? 'Walang nahanap na resulta' :
+                  {(currentLanguage as string) === 'ko' ? '검색 결과가 없습니다' :
+                   (currentLanguage as string) === 'tl' ? 'Walang nahanap na resulta' :
                    'No announcements found'}
                 </h3>
                 <p className="text-gray-600 mb-4">
-                  {currentLanguage === 'ko' ? '검색 조건을 조정해보세요' :
-                   currentLanguage === 'tl' ? 'Subukan na baguhin ang search criteria' :
+                  {(currentLanguage as string) === 'ko' ? '검색 조건을 조정해보세요' :
+                   (currentLanguage as string) === 'tl' ? 'Subukan na baguhin ang search criteria' :
                    'Try adjusting your search criteria'}
                 </p>
               </div>
@@ -369,8 +369,8 @@ export default function PolicePage() {
             {/* Quick Services */}
             <div className="bg-white rounded-xl p-6 mt-12 shadow-sm border border-gray-200">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                🔧 {currentLanguage === 'ko' ? '주요 서비스' :
-                    currentLanguage === 'tl' ? 'Mga Pangunahing Serbisyo' :
+                🔧 {(currentLanguage as string) === 'ko' ? '주요 서비스' :
+                    (currentLanguage as string) === 'tl' ? 'Mga Pangunahing Serbisyo' :
                     'Key Services'}
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -396,37 +396,37 @@ export default function PolicePage() {
             {/* Safety Tips */}
             <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-xl p-6 mt-8">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                💡 {currentLanguage === 'ko' ? '안전 수칙' :
-                    currentLanguage === 'tl' ? 'Mga Safety Tips' :
+                💡 {(currentLanguage as string) === 'ko' ? '안전 수칙' :
+                    (currentLanguage as string) === 'tl' ? 'Mga Safety Tips' :
                     'Safety Tips'}
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                 <div className="space-y-2">
                   <div className="flex items-start space-x-2">
                     <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
-                    <span>{currentLanguage === 'ko' ? '밤늦은 시간 혼자 다니지 마세요' : currentLanguage === 'tl' ? 'Huwag mag-isa sa gabi' : 'Avoid walking alone at night'}</span>
+                    <span>{(currentLanguage as string) === 'ko' ? '밤늦은 시간 혼자 다니지 마세요' : (currentLanguage as string) === 'tl' ? 'Huwag mag-isa sa gabi' : 'Avoid walking alone at night'}</span>
                   </div>
                   <div className="flex items-start space-x-2">
                     <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
-                    <span>{currentLanguage === 'ko' ? '귀중품을 보이는 곳에 두지 마세요' : currentLanguage === 'tl' ? 'Huwag ipakita ang mga valuables' : 'Keep valuables out of sight'}</span>
+                    <span>{(currentLanguage as string) === 'ko' ? '귀중품을 보이는 곳에 두지 마세요' : (currentLanguage as string) === 'tl' ? 'Huwag ipakita ang mga valuables' : 'Keep valuables out of sight'}</span>
                   </div>
                   <div className="flex items-start space-x-2">
                     <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
-                    <span>{currentLanguage === 'ko' ? '긴급시 911에 즉시 신고하세요' : currentLanguage === 'tl' ? 'Tumawag sa 911 sa emergency' : 'Call 911 in emergencies'}</span>
+                    <span>{(currentLanguage as string) === 'ko' ? '긴급시 911에 즉시 신고하세요' : (currentLanguage as string) === 'tl' ? 'Tumawag sa 911 sa emergency' : 'Call 911 in emergencies'}</span>
                   </div>
                 </div>
                 <div className="space-y-2">
                   <div className="flex items-start space-x-2">
                     <div className="w-2 h-2 bg-blue-500 rounded-full mt-2"></div>
-                    <span>{currentLanguage === 'ko' ? '항상 신분증을 소지하세요' : currentLanguage === 'tl' ? 'Magdala lagi ng ID' : 'Always carry identification'}</span>
+                    <span>{(currentLanguage as string) === 'ko' ? '항상 신분증을 소지하세요' : (currentLanguage as string) === 'tl' ? 'Magdala lagi ng ID' : 'Always carry identification'}</span>
                   </div>
                   <div className="flex items-start space-x-2">
                     <div className="w-2 h-2 bg-blue-500 rounded-full mt-2"></div>
-                    <span>{currentLanguage === 'ko' ? '의심스러운 활동을 신고하세요' : currentLanguage === 'tl' ? 'I-report ang suspicious activities' : 'Report suspicious activities'}</span>
+                    <span>{(currentLanguage as string) === 'ko' ? '의심스러운 활동을 신고하세요' : (currentLanguage as string) === 'tl' ? 'I-report ang suspicious activities' : 'Report suspicious activities'}</span>
                   </div>
                   <div className="flex items-start space-x-2">
                     <div className="w-2 h-2 bg-blue-500 rounded-full mt-2"></div>
-                    <span>{currentLanguage === 'ko' ? '가족에게 행선지를 알려주세요' : currentLanguage === 'tl' ? 'Sabihin sa pamilya ang pupuntahan' : 'Inform family of your whereabouts'}</span>
+                    <span>{(currentLanguage as string) === 'ko' ? '가족에게 행선지를 알려주세요' : (currentLanguage as string) === 'tl' ? 'Sabihin sa pamilya ang pupuntahan' : 'Inform family of your whereabouts'}</span>
                   </div>
                 </div>
               </div>

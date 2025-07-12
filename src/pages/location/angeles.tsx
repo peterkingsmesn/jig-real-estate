@@ -26,17 +26,17 @@ export default function AngelesPage() {
   // SEO 설정
   const seoConfig = useMemo(() => {
     const baseSEO = {
-      title: currentLanguage === 'ko' ? '앙헬레스 렌탈 - 외국인을 위한 프리미엄 매물 | 필리핀 렌탈' :
-             currentLanguage === 'zh' ? '安吉利斯市租房 - 外国人专属优质房源 | 菲律宾租房' :
-             currentLanguage === 'ja' ? 'アンヘレス市賃貸 - 外国人向けプレミアム物件 | フィリピン賃貸' :
+      title: (currentLanguage as string) === 'ko' ? '앙헬레스 렌탈 - 외국인을 위한 프리미엄 매물 | 필리핀 렌탈' :
+             (currentLanguage as string) === 'zh' ? '安吉利斯市租房 - 外国人专属优质房源 | 菲律宾租房' :
+             (currentLanguage as string) === 'ja' ? 'アンヘレス市賃貸 - 外国人向けプレミアム物件 | フィリピン賃貸' :
              'Angeles City Rentals - Premium Properties for Foreigners | Philippines Rental',
-      description: currentLanguage === 'ko' ? '필리핀 앙헬레스 시의 프리미엄 렌탈 매물을 찾아보세요. 클라크, 엔터테인먼트 지구, 공항 근처의 검증된 아파트와 콘도. 외국인과 디지털 노마드에게 완벽.' :
-                   currentLanguage === 'zh' ? '在菲律宾安吉利斯市寻找优质租赁房源。靠近克拉克、娱乐区和机场的经过验证的公寓和共管公寓。最适合外籍人士和数字游民。' :
-                   currentLanguage === 'ja' ? 'フィリピン、アンヘレス市のプレミアム賃貸物件を見つけます。クラーク、エンターテインメント地区、空港近くの検証済みアパートメントとコンドミニアム。外国人とデジタルノマドに最適。' :
+      description: (currentLanguage as string) === 'ko' ? '필리핀 앙헬레스 시의 프리미엄 렌탈 매물을 찾아보세요. 클라크, 엔터테인먼트 지구, 공항 근처의 검증된 아파트와 콘도. 외국인과 디지털 노마드에게 완벽.' :
+                   (currentLanguage as string) === 'zh' ? '在菲律宾安吉利斯市寻找优质租赁房源。靠近克拉克、娱乐区和机场的经过验证的公寓和共管公寓。最适合外籍人士和数字游民。' :
+                   (currentLanguage as string) === 'ja' ? 'フィリピン、アンヘレス市のプレミアム賃貸物件を見つけます。クラーク、エンターテインメント地区、空港近くの検証済みアパートメントとコンドミニアム。外国人とデジタルノマドに最適。' :
                    'Find premium rental properties in Angeles City, Philippines. Verified apartments and condos near Clark, entertainment districts, and airports. Perfect for expats and digital nomads.',
-      keywords: currentLanguage === 'ko' ? '앙헬레스 렌탈, 클라크 렌탈, 필리핀 아파트, 앙헬레스 콘도, 클라크 공군기지, 엔터테인먼트 지구, 외국인 주거, 디지털 노마드, 가구 완비 아파트, 단기 렌탈' :
-                currentLanguage === 'zh' ? '安吉利斯市租房, 克拉克租房, 菲律宾公寓, 安吉利斯共管公寓, 克拉克空军基地, 娱乐区, 外籍人士住房, 数字游民, 带家具公寓, 短期租赁' :
-                currentLanguage === 'ja' ? 'アンヘレス市賃貸, クラーク賃貸, フィリピンアパート, アンヘレスコンドミニアム, クラーク空軍基地, エンターテインメント地区, 外国人住宅, デジタルノマド, 家具付きアパート, 短期賃貸' :
+      keywords: (currentLanguage as string) === 'ko' ? '앙헬레스 렌탈, 클라크 렌탈, 필리핀 아파트, 앙헬레스 콘도, 클라크 공군기지, 엔터테인먼트 지구, 외국인 주거, 디지털 노마드, 가구 완비 아파트, 단기 렌탈' :
+                (currentLanguage as string) === 'zh' ? '安吉利斯市租房, 克拉克租房, 菲律宾公寓, 安吉利斯共管公寓, 克拉克空军基地, 娱乐区, 外籍人士住房, 数字游民, 带家具公寓, 短期租赁' :
+                (currentLanguage as string) === 'ja' ? 'アンヘレス市賃貸, クラーク賃貸, フィリピンアパート, アンヘレスコンドミニアム, クラーク空軍基地, エンターテインメント地区, 外国人住宅, デジタルノマド, 家具付きアパート, 短期賃貸' :
                 'Angeles City rental, Clark rental, Philippines apartments, Angeles condos, Clark Airbase, entertainment district, expat housing, digital nomad, furnished apartments, short term rental',
       image: '/images/locations/angeles-hero.jpg'
     };
@@ -287,10 +287,10 @@ export default function AngelesPage() {
                 🏢 Angeles City Rentals
               </h1>
               <p className="text-xl text-gray-600 mb-6 max-w-3xl mx-auto">
-                {currentLanguage === 'ko' && '클라크 국제공항 근처의 앙헬레스 시티에서 프리미엄 렌탈 매물을 찾아보세요. 외국인과 디지털 노마드를 위한 완벽한 위치입니다.'}
-                {currentLanguage === 'zh' && '在靠近克拉克国际机场的安吉利斯市寻找优质租赁房源。外籍人士和数字游民的理想地点。'}
-                {currentLanguage === 'ja' && 'クラーク国際空港近くのアンヘレス市でプレミアム賃貸物件を見つけます。外国人とデジタルノマドに最適な場所です。'}
-                {currentLanguage === 'en' && 'Find premium rental properties in Angeles City near Clark International Airport. Perfect location for expats and digital nomads.'}
+                {(currentLanguage as string) === 'ko' && '클라크 국제공항 근처의 앙헬레스 시티에서 프리미엄 렌탈 매물을 찾아보세요. 외국인과 디지털 노마드를 위한 완벽한 위치입니다.'}
+                {(currentLanguage as string) === 'zh' && '在靠近克拉克国际机场的安吉利斯市寻找优质租赁房源。外籍人士和数字游民的理想地点。'}
+                {(currentLanguage as string) === 'ja' && 'クラーク国際空港近くのアンヘレス市でプレミアム賃貸物件を見つけます。外国人とデジタルノマドに最適な場所です。'}
+                {(currentLanguage as string) === 'en' && 'Find premium rental properties in Angeles City near Clark International Airport. Perfect location for expats and digital nomads.'}
               </p>
 
               {/* Quick Stats */}

@@ -215,10 +215,10 @@ export default function ManilaPage() {
                   🏙️ Manila Apartments for Rent
                 </h1>
                 <p className="text-xl mb-6 opacity-90">
-                  {currentLanguage === 'ko' && '마닐라 최고의 아파트를 찾아보세요. 외국인 전용 프리미엄 서비스.'}
-                  {currentLanguage === 'zh' && '找到马尼拉最好的公寓。外国人专用优质服务。'}
-                  {currentLanguage === 'ja' && 'マニラ最高のアパートを見つけてください。外国人専用プレミアムサービス。'}
-                  {currentLanguage === 'en' && 'Find the best apartments in Manila. Premium service for foreigners.'}
+                  {(currentLanguage as string) === 'ko' && '마닐라 최고의 아파트를 찾아보세요. 외국인 전용 프리미엄 서비스.'}
+                  {(currentLanguage as string) === 'zh' && '找到马尼拉最好的公寓。外国人专用优质服务。'}
+                  {(currentLanguage as string) === 'ja' && 'マニラ最高のアパートを見つけてください。外国人専用プレミアムサービス。'}
+                  {(currentLanguage as string) === 'en' && 'Find the best apartments in Manila. Premium service for foreigners.'}
                 </p>
                 <div className="flex flex-wrap justify-center gap-4 text-sm">
                   <div className="bg-white/20 px-4 py-2 rounded-full">

@@ -129,10 +129,10 @@ export default function CreatePost() {
           </button>
           
           <h1 className="text-3xl font-bold text-gray-900">
-            {currentLanguage === 'ko' ? '새 게시글 작성' : 'Create New Post'}
+            {(currentLanguage as string) === 'ko' ? '새 게시글 작성' : 'Create New Post'}
           </h1>
           <p className="text-gray-600 mt-2">
-            {currentLanguage === 'ko' 
+            {(currentLanguage as string) === 'ko' 
               ? '커뮤니티 회원들과 정보를 공유하세요' 
               : 'Share information with community members'}
           </p>
@@ -171,7 +171,7 @@ export default function CreatePost() {
               >
                 {categories.map(cat => (
                   <option key={cat.id} value={cat.id}>
-                    {cat.icon} {currentLanguage === 'ko' ? cat.name : cat.nameEn}
+                    {cat.icon} {(currentLanguage as string) === 'ko' ? cat.name : cat.nameEn}
                   </option>
                 ))}
               </select>
@@ -189,7 +189,7 @@ export default function CreatePost() {
                 <option value="">그룹 선택</option>
                 {groups.map(group => (
                   <option key={group.id} value={group.id}>
-                    {currentLanguage === 'ko' ? group.name : group.nameEn}
+                    {(currentLanguage as string) === 'ko' ? group.name : group.nameEn}
                   </option>
                 ))}
               </select>

@@ -250,7 +250,7 @@ export default function GrabDriversPage() {
   }, [sampleDrivers, activeSubSection, selectedLocation, selectedAvailability, searchTerm]);
 
   const getServiceName = (service: any) => {
-    switch (currentLanguage as string) {
+    switch ((currentLanguage as string) as string) {
       case 'ko': return service.name;
       case 'tl': return service.nameTl;
       default: return service.nameEn;
@@ -258,7 +258,7 @@ export default function GrabDriversPage() {
   };
 
   const getAvailabilityLabel = (option: any) => {
-    switch (currentLanguage as string) {
+    switch ((currentLanguage as string) as string) {
       case 'ko': return option.label;
       case 'tl': return option.labelTl;
       default: return option.labelEn;
@@ -280,7 +280,7 @@ export default function GrabDriversPage() {
       scheduled: { ko: '예약가능', en: 'Bookable', tl: 'Pwedeng i-book' },
       offline: { ko: '오프라인', en: 'Offline', tl: 'Offline' }
     };
-    return map[availability]?.[currentLanguage] || map[availability]?.en || availability;
+    return map[availability]?.[(currentLanguage as string)] || map[availability]?.en || availability;
   };
 
   // 드라이버 등록 제출 핸들러
@@ -319,7 +319,7 @@ export default function GrabDriversPage() {
       const data = await response.json();
 
       if (response.ok) {
-        toast.success(currentLanguage === 'ko' ? '드라이버 등록이 완료되었습니다!' : 'Driver registration completed!');
+        toast.success((currentLanguage as string) === 'ko' ? '드라이버 등록이 완료되었습니다!' : 'Driver registration completed!');
         setShowRegistrationModal(false);
         // 등록 후 드라이버 목록 새로고침
         router.reload();
@@ -327,7 +327,7 @@ export default function GrabDriversPage() {
         throw new Error(data.error || 'Registration failed');
       }
     } catch (error) {
-      toast.error(currentLanguage === 'ko' ? '등록 중 오류가 발생했습니다.' : 'Error during registration.');
+      toast.error((currentLanguage as string) === 'ko' ? '등록 중 오류가 발생했습니다.' : 'Error during registration.');
       console.error('Registration error:', error);
     } finally {
       setIsSubmittingRegistration(false);
@@ -362,7 +362,7 @@ export default function GrabDriversPage() {
       const data = await response.json();
 
       if (response.ok) {
-        toast.success(currentLanguage === 'ko' ? '드라이버 요청이 등록되었습니다!' : 'Trip request submitted!');
+        toast.success((currentLanguage as string) === 'ko' ? '드라이버 요청이 등록되었습니다!' : 'Trip request submitted!');
         setShowFindDriverModal(false);
         // 요청 후 적절한 페이지로 이동
         router.push('/messages');
@@ -370,7 +370,7 @@ export default function GrabDriversPage() {
         throw new Error(data.error || 'Request failed');
       }
     } catch (error) {
-      toast.error(currentLanguage === 'ko' ? '요청 중 오류가 발생했습니다.' : 'Error submitting request.');
+      toast.error((currentLanguage as string) === 'ko' ? '요청 중 오류가 발생했습니다.' : 'Error submitting request.');
       console.error('Trip request error:', error);
     } finally {
       setIsSubmittingFind(false);
@@ -422,24 +422,24 @@ export default function GrabDriversPage() {
                 <div className="flex items-center space-x-1">
                   <Shield className="h-4 w-4 text-green-600" />
                   <span>
-                    {currentLanguage === 'ko' ? '인증된 드라이버' :
-                     currentLanguage === 'tl' ? 'Verified na mga Driver' :
+                    {(currentLanguage as string) === 'ko' ? '인증된 드라이버' :
+                     (currentLanguage as string) === 'tl' ? 'Verified na mga Driver' :
                      'Verified Drivers'}
                   </span>
                 </div>
                 <div className="flex items-center space-x-1">
                   <Clock className="h-4 w-4 text-blue-600" />
                   <span>
-                    {currentLanguage === 'ko' ? '24/7 서비스' :
-                     currentLanguage === 'tl' ? '24/7 na Serbisyo' :
+                    {(currentLanguage as string) === 'ko' ? '24/7 서비스' :
+                     (currentLanguage as string) === 'tl' ? '24/7 na Serbisyo' :
                      '24/7 Service'}
                   </span>
                 </div>
                 <div className="flex items-center space-x-1">
                   <Star className="h-4 w-4 text-yellow-600" />
                   <span>
-                    {currentLanguage === 'ko' ? '평점 시스템' :
-                     currentLanguage === 'tl' ? 'Rating System' :
+                    {(currentLanguage as string) === 'ko' ? '평점 시스템' :
+                     (currentLanguage as string) === 'tl' ? 'Rating System' :
                      'Rating System'}
                   </span>
                 </div>
@@ -478,8 +478,8 @@ export default function GrabDriversPage() {
                   <input
                     type="text"
                     placeholder={
-                      currentLanguage === 'ko' ? '드라이버 이름이나 차량을 검색하세요' :
-                      currentLanguage === 'tl' ? 'Maghanap ng pangalan ng driver o sasakyan' :
+                      (currentLanguage as string) === 'ko' ? '드라이버 이름이나 차량을 검색하세요' :
+                      (currentLanguage as string) === 'tl' ? 'Maghanap ng pangalan ng driver o sasakyan' :
                       'Search driver name or vehicle'
                     }
                     value={searchTerm}
@@ -567,8 +567,8 @@ export default function GrabDriversPage() {
                 <div>
                   <h2 className="text-2xl font-bold text-gray-900">
                     {activeSubSection === 'all' 
-                      ? (currentLanguage === 'ko' ? '전체 드라이버' : 
-                         currentLanguage === 'tl' ? 'Lahat ng Driver' : 'All Drivers')
+                      ? ((currentLanguage as string) === 'ko' ? '전체 드라이버' : 
+                         (currentLanguage as string) === 'tl' ? 'Lahat ng Driver' : 'All Drivers')
                       : getServiceName(serviceTypes.find(s => s.id === activeSubSection))
                     }
                   </h2>
@@ -698,29 +698,29 @@ export default function GrabDriversPage() {
               <div className="bg-white rounded-xl p-4 text-center shadow-sm border border-gray-200">
                 <div className="text-2xl font-bold text-blue-600">{sampleDrivers.length}</div>
                 <div className="text-sm text-gray-600">
-                  {currentLanguage === 'ko' ? '등록 드라이버' : 
-                   currentLanguage === 'tl' ? 'Mga Registered Driver' : 'Registered Drivers'}
+                  {(currentLanguage as string) === 'ko' ? '등록 드라이버' : 
+                   (currentLanguage as string) === 'tl' ? 'Mga Registered Driver' : 'Registered Drivers'}
                 </div>
               </div>
               <div className="bg-white rounded-xl p-4 text-center shadow-sm border border-gray-200">
                 <div className="text-2xl font-bold text-green-600">4.8/5</div>
                 <div className="text-sm text-gray-600">
-                  {currentLanguage === 'ko' ? '평균 평점' : 
-                   currentLanguage === 'tl' ? 'Average Rating' : 'Average Rating'}
+                  {(currentLanguage as string) === 'ko' ? '평균 평점' : 
+                   (currentLanguage as string) === 'tl' ? 'Average Rating' : 'Average Rating'}
                 </div>
               </div>
               <div className="bg-white rounded-xl p-4 text-center shadow-sm border border-gray-200">
                 <div className="text-2xl font-bold text-purple-600">5,234</div>
                 <div className="text-sm text-gray-600">
-                  {currentLanguage === 'ko' ? '완료된 라이드' : 
-                   currentLanguage === 'tl' ? 'Natapos na Ride' : 'Completed Rides'}
+                  {(currentLanguage as string) === 'ko' ? '완료된 라이드' : 
+                   (currentLanguage as string) === 'tl' ? 'Natapos na Ride' : 'Completed Rides'}
                 </div>
               </div>
               <div className="bg-white rounded-xl p-4 text-center shadow-sm border border-gray-200">
                 <div className="text-2xl font-bold text-orange-600">24/7</div>
                 <div className="text-sm text-gray-600">
-                  {currentLanguage === 'ko' ? '서비스 시간' : 
-                   currentLanguage === 'tl' ? 'Oras ng Serbisyo' : 'Service Hours'}
+                  {(currentLanguage as string) === 'ko' ? '서비스 시간' : 
+                   (currentLanguage as string) === 'tl' ? 'Oras ng Serbisyo' : 'Service Hours'}
                 </div>
               </div>
             </div>
@@ -732,8 +732,8 @@ export default function GrabDriversPage() {
                   <div className="p-6 border-b border-gray-200">
                     <div className="flex items-center justify-between">
                       <h2 className="text-2xl font-bold text-gray-900">
-                        {currentLanguage === 'ko' ? '드라이버 등록하기' :
-                         currentLanguage === 'tl' ? 'Mag-register bilang Driver' :
+                        {(currentLanguage as string) === 'ko' ? '드라이버 등록하기' :
+                         (currentLanguage as string) === 'tl' ? 'Mag-register bilang Driver' :
                          'Register as Driver'}
                       </h2>
                       <button
@@ -749,24 +749,24 @@ export default function GrabDriversPage() {
                     {/* Personal Information */}
                     <div>
                       <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                        {currentLanguage === 'ko' ? '개인 정보' : 'Personal Information'}
+                        {(currentLanguage as string) === 'ko' ? '개인 정보' : 'Personal Information'}
                       </h3>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                           <label className="block text-sm font-medium text-gray-700 mb-2">
-                            {currentLanguage === 'ko' ? '이름' : 'Full Name'}
+                            {(currentLanguage as string) === 'ko' ? '이름' : 'Full Name'}
                           </label>
                           <input
                             type="text"
                             name="name"
                             required
                             className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
-                            placeholder={currentLanguage === 'ko' ? '전체 이름' : 'Enter your full name'}
+                            placeholder={(currentLanguage as string) === 'ko' ? '전체 이름' : 'Enter your full name'}
                           />
                         </div>
                         <div>
                           <label className="block text-sm font-medium text-gray-700 mb-2">
-                            {currentLanguage === 'ko' ? '연락처' : 'Contact Number'}
+                            {(currentLanguage as string) === 'ko' ? '연락처' : 'Contact Number'}
                           </label>
                           <input
                             type="tel"
@@ -782,12 +782,12 @@ export default function GrabDriversPage() {
                     {/* Vehicle Information */}
                     <div>
                       <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                        {currentLanguage === 'ko' ? '차량 정보' : 'Vehicle Information'}
+                        {(currentLanguage as string) === 'ko' ? '차량 정보' : 'Vehicle Information'}
                       </h3>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                           <label className="block text-sm font-medium text-gray-700 mb-2">
-                            {currentLanguage === 'ko' ? '차량 종류' : 'Vehicle Type'}
+                            {(currentLanguage as string) === 'ko' ? '차량 종류' : 'Vehicle Type'}
                           </label>
                           <select name="vehicleType" required className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500">
                             <option value="">선택하세요</option>
@@ -798,7 +798,7 @@ export default function GrabDriversPage() {
                         </div>
                         <div>
                           <label className="block text-sm font-medium text-gray-700 mb-2">
-                            {currentLanguage === 'ko' ? '차량 모델' : 'Vehicle Model'}
+                            {(currentLanguage as string) === 'ko' ? '차량 모델' : 'Vehicle Model'}
                           </label>
                           <input
                             type="text"
@@ -810,7 +810,7 @@ export default function GrabDriversPage() {
                         </div>
                         <div>
                           <label className="block text-sm font-medium text-gray-700 mb-2">
-                            {currentLanguage === 'ko' ? '차량 번호' : 'Plate Number'}
+                            {(currentLanguage as string) === 'ko' ? '차량 번호' : 'Plate Number'}
                           </label>
                           <input
                             type="text"
@@ -822,7 +822,7 @@ export default function GrabDriversPage() {
                         </div>
                         <div>
                           <label className="block text-sm font-medium text-gray-700 mb-2">
-                            {currentLanguage === 'ko' ? '운전 경력' : 'Driving Experience'}
+                            {(currentLanguage as string) === 'ko' ? '운전 경력' : 'Driving Experience'}
                           </label>
                           <select name="experience" required className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500">
                             <option value="">선택하세요</option>
@@ -838,12 +838,12 @@ export default function GrabDriversPage() {
                     {/* Service Information */}
                     <div>
                       <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                        {currentLanguage === 'ko' ? '서비스 정보' : 'Service Information'}
+                        {(currentLanguage as string) === 'ko' ? '서비스 정보' : 'Service Information'}
                       </h3>
                       <div className="space-y-4">
                         <div>
                           <label className="block text-sm font-medium text-gray-700 mb-2">
-                            {currentLanguage === 'ko' ? '서비스 지역' : 'Service Area'}
+                            {(currentLanguage as string) === 'ko' ? '서비스 지역' : 'Service Area'}
                           </label>
                           <select name="serviceArea" required className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500">
                             <option value="">선택하세요</option>
@@ -856,7 +856,7 @@ export default function GrabDriversPage() {
                         </div>
                         <div>
                           <label className="block text-sm font-medium text-gray-700 mb-2">
-                            {currentLanguage === 'ko' ? '서비스 유형' : 'Service Types'}
+                            {(currentLanguage as string) === 'ko' ? '서비스 유형' : 'Service Types'}
                           </label>
                           <div className="space-y-2">
                             <label className="flex items-center">
@@ -879,7 +879,7 @@ export default function GrabDriversPage() {
                         </div>
                         <div>
                           <label className="block text-sm font-medium text-gray-700 mb-2">
-                            {currentLanguage === 'ko' ? '시간당 요금 (₱)' : 'Hourly Rate (₱)'}
+                            {(currentLanguage as string) === 'ko' ? '시간당 요금 (₱)' : 'Hourly Rate (₱)'}
                           </label>
                           <input
                             type="number"
@@ -891,13 +891,13 @@ export default function GrabDriversPage() {
                         </div>
                         <div>
                           <label className="block text-sm font-medium text-gray-700 mb-2">
-                            {currentLanguage === 'ko' ? '자기 소개' : 'About Yourself'}
+                            {(currentLanguage as string) === 'ko' ? '자기 소개' : 'About Yourself'}
                           </label>
                           <textarea
                             name="about"
                             className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
                             rows={4}
-                            placeholder={currentLanguage === 'ko' ? '승객들에게 자신을 소개해주세요...' : 'Introduce yourself to passengers...'}
+                            placeholder={(currentLanguage as string) === 'ko' ? '승객들에게 자신을 소개해주세요...' : 'Introduce yourself to passengers...'}
                           ></textarea>
                         </div>
                       </div>
@@ -911,8 +911,8 @@ export default function GrabDriversPage() {
                         className="flex-1 bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                       >
                         {isSubmittingRegistration ? 
-                          (currentLanguage === 'ko' ? '등록 중...' : 'Registering...') : 
-                          (currentLanguage === 'ko' ? '등록하기' : 'Register')
+                          ((currentLanguage as string) === 'ko' ? '등록 중...' : 'Registering...') : 
+                          ((currentLanguage as string) === 'ko' ? '등록하기' : 'Register')
                         }
                       </button>
                       <button
@@ -920,7 +920,7 @@ export default function GrabDriversPage() {
                         onClick={() => setShowRegistrationModal(false)}
                         className="flex-1 bg-gray-200 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-300 transition-colors"
                       >
-                        {currentLanguage === 'ko' ? '취소' : 'Cancel'}
+                        {(currentLanguage as string) === 'ko' ? '취소' : 'Cancel'}
                       </button>
                     </div>
                   </form>
@@ -935,8 +935,8 @@ export default function GrabDriversPage() {
                   <div className="p-6 border-b border-gray-200">
                     <div className="flex items-center justify-between">
                       <h2 className="text-2xl font-bold text-gray-900">
-                        {currentLanguage === 'ko' ? '드라이버 찾기' :
-                         currentLanguage === 'tl' ? 'Maghanap ng Driver' :
+                        {(currentLanguage as string) === 'ko' ? '드라이버 찾기' :
+                         (currentLanguage as string) === 'tl' ? 'Maghanap ng Driver' :
                          'Find a Driver'}
                       </h2>
                       <button
@@ -952,12 +952,12 @@ export default function GrabDriversPage() {
                     {/* Trip Information */}
                     <div>
                       <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                        {currentLanguage === 'ko' ? '이동 정보' : 'Trip Information'}
+                        {(currentLanguage as string) === 'ko' ? '이동 정보' : 'Trip Information'}
                       </h3>
                       <div className="space-y-4">
                         <div>
                           <label className="block text-sm font-medium text-gray-700 mb-2">
-                            {currentLanguage === 'ko' ? '출발지' : 'Pickup Location'}
+                            {(currentLanguage as string) === 'ko' ? '출발지' : 'Pickup Location'}
                           </label>
                           <div className="relative">
                             <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
@@ -966,13 +966,13 @@ export default function GrabDriversPage() {
                               name="pickupLocation"
                               required
                               className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                              placeholder={currentLanguage === 'ko' ? '출발 위치를 입력하세요' : 'Enter pickup location'}
+                              placeholder={(currentLanguage as string) === 'ko' ? '출발 위치를 입력하세요' : 'Enter pickup location'}
                             />
                           </div>
                         </div>
                         <div>
                           <label className="block text-sm font-medium text-gray-700 mb-2">
-                            {currentLanguage === 'ko' ? '목적지' : 'Destination'}
+                            {(currentLanguage as string) === 'ko' ? '목적지' : 'Destination'}
                           </label>
                           <div className="relative">
                             <Navigation className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
@@ -981,14 +981,14 @@ export default function GrabDriversPage() {
                               name="destination"
                               required
                               className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                              placeholder={currentLanguage === 'ko' ? '목적지를 입력하세요' : 'Enter destination'}
+                              placeholder={(currentLanguage as string) === 'ko' ? '목적지를 입력하세요' : 'Enter destination'}
                             />
                           </div>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           <div>
                             <label className="block text-sm font-medium text-gray-700 mb-2">
-                              {currentLanguage === 'ko' ? '날짜' : 'Date'}
+                              {(currentLanguage as string) === 'ko' ? '날짜' : 'Date'}
                             </label>
                             <input
                               type="date"
@@ -999,7 +999,7 @@ export default function GrabDriversPage() {
                           </div>
                           <div>
                             <label className="block text-sm font-medium text-gray-700 mb-2">
-                              {currentLanguage === 'ko' ? '시간' : 'Time'}
+                              {(currentLanguage as string) === 'ko' ? '시간' : 'Time'}
                             </label>
                             <input
                               type="time"
@@ -1015,12 +1015,12 @@ export default function GrabDriversPage() {
                     {/* Additional Information */}
                     <div>
                       <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                        {currentLanguage === 'ko' ? '추가 정보' : 'Additional Information'}
+                        {(currentLanguage as string) === 'ko' ? '추가 정보' : 'Additional Information'}
                       </h3>
                       <div className="space-y-4">
                         <div>
                           <label className="block text-sm font-medium text-gray-700 mb-2">
-                            {currentLanguage === 'ko' ? '차량 유형' : 'Vehicle Type'}
+                            {(currentLanguage as string) === 'ko' ? '차량 유형' : 'Vehicle Type'}
                           </label>
                           <select name="vehicleType" className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
                             <option value="">모든 유형</option>
@@ -1031,7 +1031,7 @@ export default function GrabDriversPage() {
                         </div>
                         <div>
                           <label className="block text-sm font-medium text-gray-700 mb-2">
-                            {currentLanguage === 'ko' ? '승객 수' : 'Number of Passengers'}
+                            {(currentLanguage as string) === 'ko' ? '승객 수' : 'Number of Passengers'}
                           </label>
                           <input
                             type="number"
@@ -1045,13 +1045,13 @@ export default function GrabDriversPage() {
                         </div>
                         <div>
                           <label className="block text-sm font-medium text-gray-700 mb-2">
-                            {currentLanguage === 'ko' ? '특별 요청사항' : 'Special Requests'}
+                            {(currentLanguage as string) === 'ko' ? '특별 요청사항' : 'Special Requests'}
                           </label>
                           <textarea
                             name="specialRequests"
                             className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
                             rows={3}
-                            placeholder={currentLanguage === 'ko' ? '특별한 요청사항이 있으면 입력하세요...' : 'Enter any special requests...'}
+                            placeholder={(currentLanguage as string) === 'ko' ? '특별한 요청사항이 있으면 입력하세요...' : 'Enter any special requests...'}
                           ></textarea>
                         </div>
                       </div>
@@ -1065,8 +1065,8 @@ export default function GrabDriversPage() {
                         className="flex-1 bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                       >
                         {isSubmittingFind ? 
-                          (currentLanguage === 'ko' ? '요청 중...' : 'Submitting...') : 
-                          (currentLanguage === 'ko' ? '드라이버 찾기' : 'Find Driver')
+                          ((currentLanguage as string) === 'ko' ? '요청 중...' : 'Submitting...') : 
+                          ((currentLanguage as string) === 'ko' ? '드라이버 찾기' : 'Find Driver')
                         }
                       </button>
                       <button
@@ -1074,7 +1074,7 @@ export default function GrabDriversPage() {
                         onClick={() => setShowFindDriverModal(false)}
                         className="flex-1 bg-gray-200 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-300 transition-colors"
                       >
-                        {currentLanguage === 'ko' ? '취소' : 'Cancel'}
+                        {(currentLanguage as string) === 'ko' ? '취소' : 'Cancel'}
                       </button>
                     </div>
                   </form>

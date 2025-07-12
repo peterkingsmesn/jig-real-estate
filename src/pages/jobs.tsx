@@ -208,8 +208,8 @@ export default function JobsPage() {
                   <input
                     type="text"
                     placeholder={
-                      currentLanguage === 'ko' ? '직무나 회사명을 검색하세요' :
-                      currentLanguage === 'tl' ? 'Maghanap ng trabaho o kumpanya' :
+                      (currentLanguage as string) === 'ko' ? '직무나 회사명을 검색하세요' :
+                      (currentLanguage as string) === 'tl' ? 'Maghanap ng trabaho o kumpanya' :
                       'Search job title or company'
                     }
                     value={searchTerm}
@@ -294,8 +294,8 @@ export default function JobsPage() {
                 <div>
                   <h2 className="text-2xl font-bold text-gray-900">
                     {activeJobType === 'all' 
-                      ? (currentLanguage === 'ko' ? '전체 채용공고' : 
-                         currentLanguage === 'tl' ? 'Lahat ng Trabaho' : 'All Jobs')
+                      ? ((currentLanguage as string) === 'ko' ? '전체 채용공고' : 
+                         (currentLanguage as string) === 'tl' ? 'Lahat ng Trabaho' : 'All Jobs')
                       : getJobTypeName(jobTypes.find(t => t.id === activeJobType))
                     }
                   </h2>

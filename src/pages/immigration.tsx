@@ -79,7 +79,7 @@ export default function ImmigrationPage() {
   });
 
   const getCategoryName = (category: any) => {
-    switch (currentLanguage as string) {
+    switch ((currentLanguage as string) as string) {
       case 'ko': return category.name;
       case 'tl': return category.nameTl;
       default: return category.nameEn;
@@ -87,7 +87,7 @@ export default function ImmigrationPage() {
   };
 
   const getNewsTitle = (news: any) => {
-    switch (currentLanguage as string) {
+    switch ((currentLanguage as string) as string) {
       case 'ko': return news.titleKo;
       case 'tl': return news.titleTl;
       default: return news.title;
@@ -95,7 +95,7 @@ export default function ImmigrationPage() {
   };
 
   const getNewsContent = (news: any) => {
-    switch (currentLanguage as string) {
+    switch ((currentLanguage as string) as string) {
       case 'ko': return news.contentKo;
       case 'tl': return news.contentTl;
       default: return news.content;
@@ -122,7 +122,7 @@ export default function ImmigrationPage() {
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
-    return date.toLocaleDateString(currentLanguage === 'ko' ? 'ko-KR' : 'en-US', {
+    return date.toLocaleDateString((currentLanguage as string) === 'ko' ? 'ko-KR' : 'en-US', {
       year: 'numeric',
       month: 'long',
       day: 'numeric'
@@ -149,19 +149,19 @@ export default function ImmigrationPage() {
                     {isOnline ? <Wifi className="h-4 w-4" /> : <WifiOff className="h-4 w-4" />}
                     <span className="text-sm font-medium">
                       {isOnline ? 
-                        (currentLanguage === 'ko' ? '실시간 업데이트 활성' : 
-                         currentLanguage === 'tl' ? 'Live Updates Active' : 
+                        ((currentLanguage as string) === 'ko' ? '실시간 업데이트 활성' : 
+                         (currentLanguage as string) === 'tl' ? 'Live Updates Active' : 
                          'Live Updates Active') :
-                        (currentLanguage === 'ko' ? '오프라인' : 
-                         currentLanguage === 'tl' ? 'Offline' : 
+                        ((currentLanguage as string) === 'ko' ? '오프라인' : 
+                         (currentLanguage as string) === 'tl' ? 'Offline' : 
                          'Offline')
                       }
                     </span>
                   </div>
                   {lastUpdated && (
                     <div className="text-sm text-gray-500">
-                      {currentLanguage === 'ko' ? '마지막 업데이트: ' : 
-                       currentLanguage === 'tl' ? 'Huling update: ' : 
+                      {(currentLanguage as string) === 'ko' ? '마지막 업데이트: ' : 
+                       (currentLanguage as string) === 'tl' ? 'Huling update: ' : 
                        'Last updated: '}
                       {new Date(lastUpdated).toLocaleString()}
                     </div>
@@ -179,11 +179,11 @@ export default function ImmigrationPage() {
                   <RefreshCw className={`h-4 w-4 ${isRefreshing ? 'animate-spin' : ''}`} />
                   <span>
                     {isRefreshing ? 
-                      (currentLanguage === 'ko' ? '업데이트 중...' : 
-                       currentLanguage === 'tl' ? 'Nag-u-update...' : 
+                      ((currentLanguage as string) === 'ko' ? '업데이트 중...' : 
+                       (currentLanguage as string) === 'tl' ? 'Nag-u-update...' : 
                        'Updating...') :
-                      (currentLanguage === 'ko' ? '새로고침' : 
-                       currentLanguage === 'tl' ? 'Refresh' : 
+                      ((currentLanguage as string) === 'ko' ? '새로고침' : 
+                       (currentLanguage as string) === 'tl' ? 'Refresh' : 
                        'Refresh')
                     }
                   </span>
@@ -191,8 +191,8 @@ export default function ImmigrationPage() {
               </div>
               {error && (
                 <div className="mt-2 text-sm text-red-600">
-                  {currentLanguage === 'ko' ? '업데이트 오류: ' : 
-                   currentLanguage === 'tl' ? 'Update error: ' : 
+                  {(currentLanguage as string) === 'ko' ? '업데이트 오류: ' : 
+                   (currentLanguage as string) === 'tl' ? 'Update error: ' : 
                    'Update error: '}{error}
                 </div>
               )}
@@ -201,13 +201,13 @@ export default function ImmigrationPage() {
             {/* Hero Section */}
             <div className="text-center mb-8">
               <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                🏛️ {currentLanguage === 'ko' ? '이민국 발표내용' :
-                     currentLanguage === 'tl' ? 'Mga Anunsyo ng Bureau of Immigration' :
+                🏛️ {(currentLanguage as string) === 'ko' ? '이민국 발표내용' :
+                     (currentLanguage as string) === 'tl' ? 'Mga Anunsyo ng Bureau of Immigration' :
                      'Immigration Announcements'}
               </h1>
               <p className="text-xl text-gray-600 mb-6">
-                {currentLanguage === 'ko' ? '필리핀 이민국의 최신 발표 및 업데이트 사항을 확인하세요' :
-                 currentLanguage === 'tl' ? 'Tingnan ang mga pinakabagong anunsyo at updates ng Bureau of Immigration ng Pilipinas' :
+                {(currentLanguage as string) === 'ko' ? '필리핀 이민국의 최신 발표 및 업데이트 사항을 확인하세요' :
+                 (currentLanguage as string) === 'tl' ? 'Tingnan ang mga pinakabagong anunsyo at updates ng Bureau of Immigration ng Pilipinas' :
                  'Stay updated with the latest announcements from the Bureau of Immigration Philippines'}
               </p>
             </div>
@@ -219,8 +219,8 @@ export default function ImmigrationPage() {
                   <AlertTriangle className="h-5 w-5 text-red-400 mr-3" />
                   <div>
                     <h3 className="text-lg font-semibold text-red-800">
-                      {currentLanguage === 'ko' ? '긴급 공지사항' :
-                       currentLanguage === 'tl' ? 'Mga Emergency Notice' :
+                      {(currentLanguage as string) === 'ko' ? '긴급 공지사항' :
+                       (currentLanguage as string) === 'tl' ? 'Mga Emergency Notice' :
                        'Emergency Notices'}
                     </h3>
                     <div className="mt-2 space-y-2">
@@ -239,8 +239,8 @@ export default function ImmigrationPage() {
             {/* Quick Contact */}
             <div className="bg-blue-50 rounded-xl p-6 mb-8">
               <h3 className="text-lg font-semibold text-blue-900 mb-4">
-                📞 {currentLanguage === 'ko' ? '이민국 연락처' :
-                    currentLanguage === 'tl' ? 'Contact Information ng BI' :
+                📞 {(currentLanguage as string) === 'ko' ? '이민국 연락처' :
+                    (currentLanguage as string) === 'tl' ? 'Contact Information ng BI' :
                     'Bureau of Immigration Contact'}
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
@@ -272,8 +272,8 @@ export default function ImmigrationPage() {
                   <input
                     type="text"
                     placeholder={
-                      currentLanguage === 'ko' ? '공지사항 검색...' :
-                      currentLanguage === 'tl' ? 'Maghanap ng announcement...' :
+                      (currentLanguage as string) === 'ko' ? '공지사항 검색...' :
+                      (currentLanguage as string) === 'tl' ? 'Maghanap ng announcement...' :
                       'Search announcements...'
                     }
                     value={searchTerm}
@@ -359,8 +359,8 @@ export default function ImmigrationPage() {
                     {news.attachments.length > 0 && (
                       <div className="mb-4">
                         <h4 className="text-sm font-semibold text-gray-900 mb-2">
-                          {currentLanguage === 'ko' ? '첨부파일' :
-                           currentLanguage === 'tl' ? 'Mga Attachment' :
+                          {(currentLanguage as string) === 'ko' ? '첨부파일' :
+                           (currentLanguage as string) === 'tl' ? 'Mga Attachment' :
                            'Attachments'}
                         </h4>
                         <div className="space-y-2">
@@ -378,8 +378,8 @@ export default function ImmigrationPage() {
                     {news.relatedLinks.length > 0 && (
                       <div className="mb-4">
                         <h4 className="text-sm font-semibold text-gray-900 mb-2">
-                          {currentLanguage === 'ko' ? '관련 링크' :
-                           currentLanguage === 'tl' ? 'Mga Related Link' :
+                          {(currentLanguage as string) === 'ko' ? '관련 링크' :
+                           (currentLanguage as string) === 'tl' ? 'Mga Related Link' :
                            'Related Links'}
                         </h4>
                         <div className="space-y-2">
@@ -406,13 +406,13 @@ export default function ImmigrationPage() {
                   <FileText className="h-12 w-12 text-gray-400" />
                 </div>
                 <h3 className="text-lg font-medium text-gray-900 mb-2">
-                  {currentLanguage === 'ko' ? '검색 결과가 없습니다' :
-                   currentLanguage === 'tl' ? 'Walang nahanap na resulta' :
+                  {(currentLanguage as string) === 'ko' ? '검색 결과가 없습니다' :
+                   (currentLanguage as string) === 'tl' ? 'Walang nahanap na resulta' :
                    'No announcements found'}
                 </h3>
                 <p className="text-gray-600 mb-4">
-                  {currentLanguage === 'ko' ? '검색 조건을 조정해보세요' :
-                   currentLanguage === 'tl' ? 'Subukan na baguhin ang search criteria' :
+                  {(currentLanguage as string) === 'ko' ? '검색 조건을 조정해보세요' :
+                   (currentLanguage as string) === 'tl' ? 'Subukan na baguhin ang search criteria' :
                    'Try adjusting your search criteria'}
                 </p>
               </div>
@@ -421,8 +421,8 @@ export default function ImmigrationPage() {
             {/* Useful Links */}
             <div className="bg-white rounded-xl p-6 mt-12 shadow-sm border border-gray-200">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                🔗 {currentLanguage === 'ko' ? '유용한 링크' :
-                    currentLanguage === 'tl' ? 'Mga Useful Links' :
+                🔗 {(currentLanguage as string) === 'ko' ? '유용한 링크' :
+                    (currentLanguage as string) === 'tl' ? 'Mga Useful Links' :
                     'Useful Links'}
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">

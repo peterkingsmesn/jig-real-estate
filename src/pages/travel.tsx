@@ -317,25 +317,25 @@ export default function TravelPage() {
                 <div className="bg-white rounded-xl p-4 shadow-sm">
                   <div className="text-2xl font-bold text-blue-600">7,640</div>
                   <div className="text-sm text-gray-600">
-                    {currentLanguage === 'ko' ? '섬들' : currentLanguage === 'tl' ? 'Mga Isla' : 'Islands'}
+                    {(currentLanguage as string) === 'ko' ? '섬들' : (currentLanguage as string) === 'tl' ? 'Mga Isla' : 'Islands'}
                   </div>
                 </div>
                 <div className="bg-white rounded-xl p-4 shadow-sm">
                   <div className="text-2xl font-bold text-green-600">300+</div>
                   <div className="text-sm text-gray-600">
-                    {currentLanguage === 'ko' ? '관광지' : currentLanguage === 'tl' ? 'Destinations' : 'Destinations'}
+                    {(currentLanguage as string) === 'ko' ? '관광지' : (currentLanguage as string) === 'tl' ? 'Destinations' : 'Destinations'}
                   </div>
                 </div>
                 <div className="bg-white rounded-xl p-4 shadow-sm">
                   <div className="text-2xl font-bold text-purple-600">25°C</div>
                   <div className="text-sm text-gray-600">
-                    {currentLanguage === 'ko' ? '평균 기온' : currentLanguage === 'tl' ? 'Avg Temp' : 'Avg Temp'}
+                    {(currentLanguage as string) === 'ko' ? '평균 기온' : (currentLanguage as string) === 'tl' ? 'Avg Temp' : 'Avg Temp'}
                   </div>
                 </div>
                 <div className="bg-white rounded-xl p-4 shadow-sm">
                   <div className="text-2xl font-bold text-orange-600">181</div>
                   <div className="text-sm text-gray-600">
-                    {currentLanguage === 'ko' ? '언어' : currentLanguage === 'tl' ? 'Languages' : 'Languages'}
+                    {(currentLanguage as string) === 'ko' ? '언어' : (currentLanguage as string) === 'tl' ? 'Languages' : 'Languages'}
                   </div>
                 </div>
               </div>
@@ -373,8 +373,8 @@ export default function TravelPage() {
                   <input
                     type="text"
                     placeholder={
-                      currentLanguage === 'ko' ? '여행지나 활동을 검색하세요...' :
-                      currentLanguage === 'tl' ? 'Maghanap ng destination o activity...' :
+                      (currentLanguage as string) === 'ko' ? '여행지나 활동을 검색하세요...' :
+                      (currentLanguage as string) === 'tl' ? 'Maghanap ng destination o activity...' :
                       'Search destinations or activities...'
                     }
                     value={searchTerm}
@@ -388,11 +388,11 @@ export default function TravelPage() {
                   className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
                 >
                   <option value="">
-                    {currentLanguage === 'ko' ? '모든 지역' : currentLanguage === 'tl' ? 'Lahat ng Region' : 'All Regions'}
+                    {(currentLanguage as string) === 'ko' ? '모든 지역' : (currentLanguage as string) === 'tl' ? 'Lahat ng Region' : 'All Regions'}
                   </option>
                   {regions.map(region => (
                     <option key={region.id} value={region.nameEn}>
-                      {currentLanguage === 'ko' ? region.name : region.nameEn}
+                      {(currentLanguage as string) === 'ko' ? region.name : region.nameEn}
                     </option>
                   ))}
                 </select>
@@ -402,8 +402,8 @@ export default function TravelPage() {
             {/* Featured Destinations */}
             <div className="mb-12">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">
-                🌟 {currentLanguage === 'ko' ? '추천 여행지' :
-                    currentLanguage === 'tl' ? 'Featured Destinations' :
+                🌟 {(currentLanguage as string) === 'ko' ? '추천 여행지' :
+                    (currentLanguage as string) === 'tl' ? 'Featured Destinations' :
                     'Featured Destinations'}
               </h2>
               
@@ -510,8 +510,8 @@ export default function TravelPage() {
             {/* Travel Guides */}
             <div className="mb-12">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">
-                📚 {currentLanguage === 'ko' ? '여행 가이드' :
-                    currentLanguage === 'tl' ? 'Travel Guides' :
+                📚 {(currentLanguage as string) === 'ko' ? '여행 가이드' :
+                    (currentLanguage as string) === 'tl' ? 'Travel Guides' :
                     'Travel Guides'}
               </h2>
               
@@ -532,7 +532,7 @@ export default function TravelPage() {
                       </div>
                       <div className="flex-1 p-4">
                         <h3 className="font-semibold text-gray-900 mb-2 line-clamp-2">
-                          {currentLanguage === 'ko' ? guide.titleKo : guide.title}
+                          {(currentLanguage as string) === 'ko' ? guide.titleKo : guide.title}
                         </h3>
                         <p className="text-sm text-gray-600 mb-3 line-clamp-2">
                           {guide.description}
@@ -561,10 +561,10 @@ export default function TravelPage() {
                   <Plane className="h-6 w-6 text-white" />
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2">
-                  {currentLanguage === 'ko' ? '항공편' : 'Flights'}
+                  {(currentLanguage as string) === 'ko' ? '항공편' : 'Flights'}
                 </h3>
                 <p className="text-sm text-gray-600">
-                  {currentLanguage === 'ko' ? '최저가 항공료 검색' : 'Find best flight deals'}
+                  {(currentLanguage as string) === 'ko' ? '최저가 항공료 검색' : 'Find best flight deals'}
                 </p>
               </div>
 
@@ -573,10 +573,10 @@ export default function TravelPage() {
                   <Hotel className="h-6 w-6 text-white" />
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2">
-                  {currentLanguage === 'ko' ? '숙소' : 'Accommodation'}
+                  {(currentLanguage as string) === 'ko' ? '숙소' : 'Accommodation'}
                 </h3>
                 <p className="text-sm text-gray-600">
-                  {currentLanguage === 'ko' ? '완벽한 숙소 찾기' : 'Book perfect stays'}
+                  {(currentLanguage as string) === 'ko' ? '완벽한 숙소 찾기' : 'Book perfect stays'}
                 </p>
               </div>
 
@@ -585,10 +585,10 @@ export default function TravelPage() {
                   <Car className="h-6 w-6 text-white" />
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2">
-                  {currentLanguage === 'ko' ? '교통' : 'Transportation'}
+                  {(currentLanguage as string) === 'ko' ? '교통' : 'Transportation'}
                 </h3>
                 <p className="text-sm text-gray-600">
-                  {currentLanguage === 'ko' ? '렌터카 및 투어' : 'Rent cars & tours'}
+                  {(currentLanguage as string) === 'ko' ? '렌터카 및 투어' : 'Rent cars & tours'}
                 </p>
               </div>
 
@@ -597,10 +597,10 @@ export default function TravelPage() {
                   <Utensils className="h-6 w-6 text-white" />
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2">
-                  {currentLanguage === 'ko' ? '음식' : 'Food'}
+                  {(currentLanguage as string) === 'ko' ? '음식' : 'Food'}
                 </h3>
                 <p className="text-sm text-gray-600">
-                  {currentLanguage === 'ko' ? '현지 맛집 발견' : 'Discover local cuisine'}
+                  {(currentLanguage as string) === 'ko' ? '현지 맛집 발견' : 'Discover local cuisine'}
                 </p>
               </div>
             </div>
@@ -609,13 +609,13 @@ export default function TravelPage() {
             <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white mb-12">
               <div className="text-center mb-8">
                 <h2 className="text-2xl font-bold mb-2">
-                  {currentLanguage === 'ko' ? '🎒 여행 필수 정보' :
-                   currentLanguage === 'tl' ? '🎒 Travel Essentials' :
+                  {(currentLanguage as string) === 'ko' ? '🎒 여행 필수 정보' :
+                   (currentLanguage as string) === 'tl' ? '🎒 Travel Essentials' :
                    '🎒 Travel Essentials'}
                 </h2>
                 <p className="text-blue-100">
-                  {currentLanguage === 'ko' ? '필리핀 여행을 위한 필수 준비 사항들' :
-                   currentLanguage === 'tl' ? 'Essential preparations para sa Philippines travel' :
+                  {(currentLanguage as string) === 'ko' ? '필리핀 여행을 위한 필수 준비 사항들' :
+                   (currentLanguage as string) === 'tl' ? 'Essential preparations para sa Philippines travel' :
                    'Essential preparations for your Philippines trip'}
                 </p>
               </div>
@@ -626,10 +626,10 @@ export default function TravelPage() {
                     <Shield className="h-8 w-8 text-white" />
                   </div>
                   <h3 className="font-semibold mb-2">
-                    {currentLanguage === 'ko' ? '비자 요구사항' : 'Visa Requirements'}
+                    {(currentLanguage as string) === 'ko' ? '비자 요구사항' : 'Visa Requirements'}
                   </h3>
                   <p className="text-sm text-blue-100">
-                    {currentLanguage === 'ko' ? '대부분의 국가는 30일 무비자 입국 가능' : 'Visa-free entry for most countries up to 30 days'}
+                    {(currentLanguage as string) === 'ko' ? '대부분의 국가는 30일 무비자 입국 가능' : 'Visa-free entry for most countries up to 30 days'}
                   </p>
                 </div>
 
@@ -638,10 +638,10 @@ export default function TravelPage() {
                     <CreditCard className="h-8 w-8 text-white" />
                   </div>
                   <h3 className="font-semibold mb-2">
-                    {currentLanguage === 'ko' ? '화폐' : 'Currency'}
+                    {(currentLanguage as string) === 'ko' ? '화폐' : 'Currency'}
                   </h3>
                   <p className="text-sm text-blue-100">
-                    {currentLanguage === 'ko' ? 'PHP (페소) - 현금 사용 권장' : 'PHP (Peso) - Cash is recommended'}
+                    {(currentLanguage as string) === 'ko' ? 'PHP (페소) - 현금 사용 권장' : 'PHP (Peso) - Cash is recommended'}
                   </p>
                 </div>
 
@@ -650,10 +650,10 @@ export default function TravelPage() {
                     <Smartphone className="h-8 w-8 text-white" />
                   </div>
                   <h3 className="font-semibold mb-2">
-                    {currentLanguage === 'ko' ? '통신' : 'Connectivity'}
+                    {(currentLanguage as string) === 'ko' ? '통신' : 'Connectivity'}
                   </h3>
                   <p className="text-sm text-blue-100">
-                    {currentLanguage === 'ko' ? '공항에서 SIM 카드 구매 가능' : 'SIM cards available at airports'}
+                    {(currentLanguage as string) === 'ko' ? '공항에서 SIM 카드 구매 가능' : 'SIM cards available at airports'}
                   </p>
                 </div>
               </div>
@@ -662,8 +662,8 @@ export default function TravelPage() {
             {/* Emergency Contacts */}
             <div className="bg-red-50 border border-red-200 rounded-xl p-6">
               <h3 className="text-lg font-semibold text-red-900 mb-2">
-                🚨 {currentLanguage === 'ko' ? '긴급 연락처' :
-                    currentLanguage === 'tl' ? 'Emergency Contacts' :
+                🚨 {(currentLanguage as string) === 'ko' ? '긴급 연락처' :
+                    (currentLanguage as string) === 'tl' ? 'Emergency Contacts' :
                     'Emergency Contacts'}
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
