@@ -38,7 +38,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     // TODO: Implement property approval logic
-    const approvedProperty = { id: propertyId, status: 'approved' };
+    const approvedProperty = { id: propertyId, status: 'approved', title: 'Property' };
 
     if (!approvedProperty) {
       return res.status(404).json({

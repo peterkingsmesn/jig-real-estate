@@ -67,9 +67,11 @@ export default function PropertyCard({
     return typeLabels[type as keyof typeof typeLabels]?.[language as keyof typeof typeLabels.house] || type;
   };
 
-  const mainImage = typeof property.images[0] === 'string' 
-    ? property.images[0] 
-    : (property.images as PropertyImage[]).find(img => img.isMain) || property.images[0];
+  const mainImage = property.images && property.images.length > 0
+    ? (typeof property.images[0] === 'string' 
+        ? property.images[0] 
+        : (property.images as PropertyImage[]).find(img => img.isMain) || property.images[0])
+    : null;
 
   return (
     <div 
@@ -80,8 +82,12 @@ export default function PropertyCard({
       {/* Image Section */}
       <div className="relative h-32 overflow-hidden">
         <Image
-          src={typeof mainImage === 'string' ? mainImage : (mainImage?.url || '/placeholder-property.jpg')}
-          alt={typeof mainImage === 'string' ? getTranslatedTitle() : (mainImage?.alt || getTranslatedTitle())}
+          src={mainImage 
+            ? (typeof mainImage === 'string' ? mainImage : mainImage.url)
+            : '/placeholder-property.jpg'}
+          alt={mainImage 
+            ? (typeof mainImage === 'string' ? getTranslatedTitle() : mainImage.alt)
+            : getTranslatedTitle()}
           fill
           sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 20vw"
           className="object-cover transition-transform duration-300 group-hover:scale-105"
