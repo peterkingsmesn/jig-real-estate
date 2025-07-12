@@ -250,7 +250,7 @@ export default function GrabDriversPage() {
   }, [sampleDrivers, activeSubSection, selectedLocation, selectedAvailability, searchTerm]);
 
   const getServiceName = (service: any) => {
-    switch (currentLanguage) {
+    switch (currentLanguage as string) {
       case 'ko': return service.name;
       case 'tl': return service.nameTl;
       default: return service.nameEn;
@@ -258,7 +258,7 @@ export default function GrabDriversPage() {
   };
 
   const getAvailabilityLabel = (option: any) => {
-    switch (currentLanguage) {
+    switch (currentLanguage as string) {
       case 'ko': return option.label;
       case 'tl': return option.labelTl;
       default: return option.labelEn;
