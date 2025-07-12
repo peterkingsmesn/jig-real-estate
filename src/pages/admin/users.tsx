@@ -119,7 +119,7 @@ export default function AdminUsersPage() {
     }
   };
 
-  if (status === 'loading' || !session?.user.role === 'admin') {
+  if (status === 'loading' || session?.user.role !== 'admin') {
     return <div>Loading...</div>;
   }
 
