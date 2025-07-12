@@ -108,6 +108,7 @@ declare module 'lucide-react' {
   export const ArrowUp: Icon;
   export const AtSign: Icon;
   export const Award: Icon;
+  export const Banknote: Icon;
   export const BarChart: Icon;
   export const BarChart2: Icon;
   export const BarChart3: Icon;
@@ -169,15 +170,18 @@ declare module 'lucide-react' {
   export const GitMerge: Icon;
   export const GitPullRequest: Icon;
   export const Github: Icon;
+  export const Gamepad2: Icon;
   export const Gitlab: Icon;
   export const Globe: Icon;
   export const Grid: Icon;
+  export const GripVertical: Icon;
   export const HardDrive: Icon;
   export const Hash: Icon;
   export const Headphones: Icon;
   export const Heart: Icon;
   export const HelpCircle: Icon;
   export const Hexagon: Icon;
+  export const Hotel: Icon;
   export const Home: Icon;
   export const Image: Icon;
   export const Inbox: Icon;
@@ -225,6 +229,7 @@ declare module 'lucide-react' {
   export const Navigation2: Icon;
   export const Octagon: Icon;
   export const Package: Icon;
+  export const Palmtree: Icon;
   export const Paperclip: Icon;
   export const Pause: Icon;
   export const PauseCircle: Icon;
@@ -276,10 +281,12 @@ declare module 'lucide-react' {
   export const SlidersHorizontal: Icon;
   export const Smartphone: Icon;
   export const Smile: Icon;
+  export const Sparkles: Icon;
   export const Speaker: Icon;
   export const Square: Icon;
   export const Star: Icon;
   export const StopCircle: Icon;
+  export const Store: Icon;
   export const Sun: Icon;
   export const Sunrise: Icon;
   export const Sunset: Icon;
@@ -315,6 +322,7 @@ declare module 'lucide-react' {
   export const UserPlus: Icon;
   export const UserX: Icon;
   export const Users: Icon;
+  export const Utensils: Icon;
   export const Video: Icon;
   export const VideoOff: Icon;
   export const Voicemail: Icon;
