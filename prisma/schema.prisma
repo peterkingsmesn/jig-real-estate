@@ -1,0 +1,131 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Driver {
+  id             String   @id @default(cuid())
+  name           String
+  contact        String
+  vehicleType    String
+  vehicleModel   String
+  plateNumber    String   @unique
+  experience     String
+  serviceArea    String
+  serviceTypes   String   // JSON string
+  hourlyRate     Float
+  about          String?
+  rating         Float    @default(0)
+  reviews        Int      @default(0)
+  completedTrips Int      @default(0)
+  verified       Boolean  @default(false)
+  availability   String   @default("available")
+  avatar         String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+model TripRequest {
+  id              String   @id @default(cuid())
+  userId          String
+  pickupLocation  String
+  destination     String
+  date            DateTime
+  time            String
+  vehicleType     String
+  passengers      Int      @default(1)
+  specialRequests String?
+  status          String   @default("pending")
+  driverId        String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model Property {
+  id              String   @id @default(cuid())
+  title           String
+  titleKo         String?
+  titleZh         String?
+  titleJa         String?
+  description     String
+  descriptionKo   String?
+  descriptionZh   String?
+  descriptionJa   String?
+  price           Float
+  location        String
+  bedrooms        Int
+  bathrooms       Int
+  area            Float
+  propertyType    String
+  images          String   @default("[]") // JSON array of image URLs
+  features        String   @default("[]") // JSON array of features
+  ownerId         String
+  status          String   @default("active")
+  likes           Int      @default(0)
+  views           Int      @default(0)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model MarketplaceItem {
+  id              String   @id @default(cuid())
+  title           String
+  description     String
+  price           Float
+  category        String
+  condition       String
+  images          String   @default("[]") // JSON array
+  sellerId        String
+  sellerName      String
+  sellerContact   String
+  location        String
+  status          String   @default("active")
+  views           Int      @default(0)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model CommunityPost {
+  id              String   @id @default(cuid())
+  title           String
+  content         String
+  category        String
+  authorId        String
+  authorName      String
+  likes           Int      @default(0)
+  comments        Int      @default(0)
+  views           Int      @default(0)
+  tags            String   @default("[]") // JSON array
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model Message {
+  id              String   @id @default(cuid())
+  senderId        String
+  senderName      String
+  receiverId      String
+  subject         String
+  content         String
+  read            Boolean  @default(false)
+  createdAt       DateTime @default(now())
+}
+
+model User {
+  id              String   @id @default(cuid())
+  email           String   @unique
+  name            String
+  avatar          String?
+  bio             String?
+  location        String?
+  phone           String?
+  whatsapp        String?
+  language        String   @default("ko")
+  role            String   @default("user")
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
