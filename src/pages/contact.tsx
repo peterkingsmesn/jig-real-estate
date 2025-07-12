@@ -232,10 +232,10 @@ export default function ContactPage() {
                 📞 Contact Us
               </h1>
               <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-                {currentLanguage === 'ko' && '전문 팀이 완벽한 필리핀 렌탈을 찾도록 도와드립니다. 다국어 지원으로 편리하게 문의하세요.'}
-                {currentLanguage === 'zh' && '我们的专业团队将帮助您找到完美的菲律宾租房。多语言支持，方便咨询。'}
-                {currentLanguage === 'ja' && '専門チームが完璧なフィリピン賃貸物件探しをお手伝いします。多言語サポートでお気軽にお問い合わせください。'}
-                {currentLanguage === 'en' && 'Our expert team is here to help you find the perfect rental in the Philippines. Multilingual support available.'}
+                {(currentLanguage as string) === 'ko' && '전문 팀이 완벽한 필리핀 렌탈을 찾도록 도와드립니다. 다국어 지원으로 편리하게 문의하세요.'}
+                {(currentLanguage as string) === 'zh' && '我们的专业团队将帮助您找到完美的菲律宾租房。多语言支持，方便咨询。'}
+                {(currentLanguage as string) === 'ja' && '専門チームが完璧なフィリピン賃貸物件探しをお手伝いします。多言語サポートでお気軽にお問い合わせください。'}
+                {(currentLanguage as string) === 'en' && 'Our expert team is here to help you find the perfect rental in the Philippines. Multilingual support available.'}
               </p>
             </div>
 
