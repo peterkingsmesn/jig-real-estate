@@ -45,7 +45,7 @@ export default function PropertySearch({
     onFiltersChange({
       ...filters,
       search: searchTerm
-    });
+    } as PropertyFilters);
     onSearch();
   };
 
