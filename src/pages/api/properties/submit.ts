@@ -85,8 +85,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         bathrooms: parseInt(bathrooms),
         area: parseFloat(area),
         propertyType: type,
-        images: [], // 이미지 업로드는 추후 구현
-        features: amenities || [],
+        images: '[]', // 이미지 업로드는 추후 구현 (JSON string)
+        features: JSON.stringify(amenities || []),
         ownerId: session?.user?.email || 'anonymous',
         status: 'active'
       }
