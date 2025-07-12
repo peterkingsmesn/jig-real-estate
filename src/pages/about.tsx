@@ -241,10 +241,10 @@ export default function AboutPage() {
                 💡 About Philippines Rental
               </h1>
               <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-                {currentLanguage === 'ko' && '외국인을 위한 필리핀 최고의 렌탈 서비스. 전문적이고 신뢰할 수 있는 팀이 완벽한 집을 찾아드립니다.'}
-                {currentLanguage === 'zh' && '菲律宾外国人专业租房服务。专业可靠的团队帮您找到完美的家。'}
-                {currentLanguage === 'ja' && 'フィリピンの外国人向け賃貸サービス。専門的で信頼できるチームが完璧な住まいを見つけます。'}
-                {currentLanguage === 'en' && 'Philippines premier rental service for foreigners. Our professional and trusted team helps you find the perfect home.'}
+                {(currentLanguage as string) === 'ko' && '외국인을 위한 필리핀 최고의 렌탈 서비스. 전문적이고 신뢰할 수 있는 팀이 완벽한 집을 찾아드립니다.'}
+                {(currentLanguage as string) === 'zh' && '菲律宾外国人专业租房服务。专业可靠的团队帮您找到完美的家。'}
+                {(currentLanguage as string) === 'ja' && 'フィリピンの外国人向け賃貸サービス。専門的で信頼できるチームが完璧な住まいを見つけます。'}
+                {(currentLanguage as string) === 'en' && 'Philippines premier rental service for foreigners. Our professional and trusted team helps you find the perfect home.'}
               </p>
             </div>
 
