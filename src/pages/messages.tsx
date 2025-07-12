@@ -162,7 +162,7 @@ export default function MessagesPage() {
             id: session?.user?.email || '',
             name: session?.user?.name || 'Anonymous',
             email: session?.user?.email || '',
-            image: session?.user?.image || null
+            image: session?.user?.image || undefined
           },
           fromUserEmail: session?.user?.email || '',
           toUserEmail: selectedConversation,
