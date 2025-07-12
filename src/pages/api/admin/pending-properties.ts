@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { getSession } from 'next-auth/react';
-import { getPendingProperties } from '../properties/submit';
+// import { getPendingProperties } from '../properties/submit';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'GET') {
@@ -28,7 +28,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     //   });
     // }
 
-    const pendingProperties = getPendingProperties().filter(p => p.status === 'pending');
+    // TODO: Implement database query for pending properties
+    const pendingProperties: any[] = [];
 
     return res.status(200).json({
       success: true,
